@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In bool-mismatch-types.zz:
+
+    |
+  2 |     print(1 == "a")
+    |             ^
+    |             logical operation '==' with types 'anyint' and 'str' cannot be performed
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

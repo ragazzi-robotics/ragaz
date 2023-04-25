@@ -1,0 +1,12 @@
+var A, B, C, D, E = True, 'a', 1979, 27.11, "David Ragazzi"
+var F: int, G: float = 1.5, 2
+
+
+def main():
+    print(A)
+    print(B)
+    print(C)
+    print(D)
+    print(E)
+    print(F)
+    print(G)

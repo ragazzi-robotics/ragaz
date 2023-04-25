@@ -1,0 +1,9 @@
+def move<T>(obj: T):
+    pass
+
+
+def main():
+    var a = "x"
+    var b = (a, "y")
+    move(b)
+    print(a)

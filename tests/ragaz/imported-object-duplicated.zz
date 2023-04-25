@@ -1,0 +1,6 @@
+from inner_module import CONST
+import inner_module
+
+
+def main():
+    print(CONST)

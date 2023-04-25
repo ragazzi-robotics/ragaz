@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In attribute-not-found.zz:
+
+    |
+ 10 |     var b = a.foo
+    |              ^
+    |              attribute 'foo' was not found
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

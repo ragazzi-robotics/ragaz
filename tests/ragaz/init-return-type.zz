@@ -1,0 +1,7 @@
+class Bar:
+    def __init__(self) -> i32:
+        return 1
+
+
+def main():
+    pass

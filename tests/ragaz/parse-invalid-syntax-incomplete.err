@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In parse-invalid-syntax-incomplete.zz:
+
+    |
+  2 |     var a = (1 + # teste
+    |                ^
+    |                invalid syntax
+@

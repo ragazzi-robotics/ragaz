@@ -1,0 +1,40 @@
+class Bar:
+    value: uint
+    def __init__(self, v: uint):
+        self.value = v
+
+
+def return_nullable(i: int) -> Bar:
+    return Bar(i) if i > 2 else None
+
+
+def passing_nullable(i: int):
+    if i is None:
+        print("no number")
+    else:
+        print(i)
+
+
+def main():
+
+    var num: int = None
+    passing_nullable(num)
+    num = 5
+    passing_nullable(num)
+
+    var obj: Bar = None
+    print(obj is None)
+    obj = Bar(2)
+    print(obj is None)
+
+    obj = return_nullable(1)
+    if obj is None:
+        print("no object")
+    else:
+        print(obj.value)
+
+    obj = return_nullable(3)
+    if obj is None:
+        print("no object")
+    else:
+        print(obj.value)

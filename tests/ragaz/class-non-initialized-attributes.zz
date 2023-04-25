@@ -1,0 +1,11 @@
+class Bar:
+    x: int
+    y: float
+    z: str
+
+    def __init__(self, x: int, y: float):
+        self.x = x
+
+
+def main():
+    pass

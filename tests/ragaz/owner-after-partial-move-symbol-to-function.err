@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In owner-after-move-symbol-to-function.zz:
+
+    |
+  7 |     move(s)
+    |          ^
+    |          value (partially) moved here
+    |
+  8 |     print(s)
+    |           ^
+    |           but used here after move
+
+    Hint:
+    - If you don't intend move it, consider pass a reference to value using '&' operator.
+@

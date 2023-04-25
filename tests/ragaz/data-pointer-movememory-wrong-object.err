@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In data-pointer-movememory-wrong-object.zz:
+
+    |
+  2 |     movememory(1, 2, 3)
+    |                ^
+    |                object type must be 'data<T>' to perform this operation ('anyint' not allowed)
+@

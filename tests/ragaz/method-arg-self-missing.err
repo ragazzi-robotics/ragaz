@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In method-arg-self-missing.zz:
+
+    |
+  2 |     def __init__():
+    |                 ^
+    |                 missing 'self' argument
+@

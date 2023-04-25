@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In ref-mutable-not-allowed.zz:
+
+    |
+ 16 |     var b: ~&Bar = &a
+    |         ^
+    |         mutable object 'b' already references the same object
+    |
+ 17 |     var c: ~&Bar = &a
+    |         ^
+    |         which you are trying to reference using the mutable object 'c'
+
+    Hint:
+    - Consider remove the mutability of one of them or both.
+@

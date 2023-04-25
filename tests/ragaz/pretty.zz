@@ -1,0 +1,73 @@
+# test: {"type": "show"}
+
+
+class Bar:
+    value: uint
+    msg: str
+    def __init__(self, v: uint, msg: str):
+        self.value = v
+        self.msg = msg
+
+
+def main():
+    pass
+
+
+def get_nullable(i: int) -> Bar:
+    return Bar(1, "one") if i > 2 else None
+
+
+def cast(a: byte):
+    var p = a as i8
+
+
+def nullable_check():
+
+    var obj = get_nullable(1)
+    if obj is None:
+        print("no value")
+    else:
+        print(False)
+
+    obj = get_nullable(3)
+    if obj is None:
+        print("no value")
+    else:
+        print(obj.value)
+
+    raise Exception("fail!")
+
+
+def math():
+    print(3 + 4 - 5 * 6 / 7)
+    print(0.1)
+    print(6 < 4)
+    print(6 <= 4)
+    print(5 > 3)
+    print(5 >= 5)
+    print(4 % 3)
+    try:
+        nullable_check()
+    except Exception:
+        print("caught")
+
+
+def binary():
+    print(3 & 1)
+    print(2 | 6)
+    print(3 ^ 2)
+    print("" and "b" or "c")
+    print("a" != "b")
+    print("c" == "c")
+    print(not "")
+    var a = 1
+    if a == 0:
+        pass
+    elif a < 1:
+        pass
+    else:
+        pass
+
+
+def raises():
+    raise Exception("foo")

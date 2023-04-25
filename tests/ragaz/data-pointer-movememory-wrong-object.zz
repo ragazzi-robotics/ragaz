@@ -1,0 +1,2 @@
+def main():
+    movememory(1, 2, 3)

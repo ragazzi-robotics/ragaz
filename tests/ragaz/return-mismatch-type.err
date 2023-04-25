@@ -1,0 +1,19 @@
+@
+ERROR
+=====
+
+    In return-mismatch-type.zz:
+
+    |
+  1 | def foo() -> int:
+    |              ^
+    |              function must return a value of type 'int'
+    |
+  2 |     return "blah"
+    |            ^
+    |            but returned a value of type 'str'
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

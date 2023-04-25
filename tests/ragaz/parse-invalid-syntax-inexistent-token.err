@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In parse-invalid-syntax-inexistent-token.zz:
+
+    |
+  2 |     $
+    |     ^
+    |     invalid syntax
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

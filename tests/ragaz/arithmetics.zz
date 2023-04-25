@@ -1,0 +1,83 @@
+def main():
+
+    # ints
+    var x: int = 15 / 5 + 3 - 2 + 5 * -6
+    print(x)
+
+    x = 9 - 22 / 11 + 6 * -3 - 11 % 2
+    print(x)
+
+    # floats
+    var y: float = ((15 / 5.7) + 3.5 - 2 + (5 * 6.1)) / 2.3
+    print(y)
+
+    y = 2 * (9.25 - (22 / 11.5) + (6 * 3.0) - 11 % 2.5)
+    print(y)
+
+    var z = x + y
+    print(z)
+
+    x = 2 ** 3
+    print(x)
+    y = 2.5 * 3
+    print(y)
+
+    x = 5 // 2
+    print(x)
+    y = 5 // 2
+    print(y)
+
+    # in place; ints
+    x = 10
+
+    x += 1
+    print(x)
+
+    x -= 1
+    print(x)
+
+    x *= 3
+    print(x)
+
+    x /= 3.5
+    print(x)
+
+    x %= 5
+    print(x)
+
+    # in place; floats
+    y = 10
+
+    y += 1
+    print(y)
+
+    y -= 1.2
+    print(y)
+
+    y *= 3
+    print(y)
+
+    y /= 3.5
+    print(y)
+
+    y %= 5.5
+    print(y)
+
+    y = round(6.4)
+    print(y)
+    y = round(6.5)
+    print(y)
+
+    var x = pow(2, 2)
+    print(x)
+    x = pow(2, 2.9)
+    print(x)
+
+    var y = pow(2.5, 2)
+    print(y)
+    y = pow(2.5, 2.9)
+    print(y)
+
+    var q, r = divmod(11.5, 3)
+    print(q)
+    print(r)

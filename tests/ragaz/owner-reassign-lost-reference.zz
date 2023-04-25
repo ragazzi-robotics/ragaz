@@ -1,0 +1,6 @@
+def main():
+    var a = "abc"
+    var b = &a
+    var c = &b
+    a = "cde"
+    print(c)

@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In return-force-void.zz:
+
+    |
+  1 | def main():
+    |         ^
+    |         function defined with no return
+    |
+  2 |     return 0
+    |            ^
+    |            but is returning 'anyint'
+
+    Hint:
+    - Have you forget to define a return type for the function?
+@

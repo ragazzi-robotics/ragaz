@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In owner-after-move-attribute-to-function.zz:
+
+    |
+ 13 |     move(a.s)
+    |           ^
+    |           value moved here
+    |
+ 14 |     print(a.s)
+    |            ^
+    |            but used here after move
+
+    Hint:
+    - If you don't intend move it, consider pass a reference to value using '&' operator.
+@

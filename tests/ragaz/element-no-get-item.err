@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In element-no-get-item.zz:
+
+    |
+  8 |     print(a[0])
+    |            ^
+    |            object is not subscriptable
+
+    Hint:
+    - Are you sure that this object is a collection (like list, tuple, etc.)?
+    - Implement a magic method '__getitem__' in 'Bar'.
+@

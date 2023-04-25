@@ -1,0 +1,8 @@
+def convert(a: tuple<int, int>) -> tuple<int, int>:
+    return a
+
+
+def main():
+    var a: tuple<int, float> = (1, 2.0)
+    var b = convert(a)
+    print(b[1])

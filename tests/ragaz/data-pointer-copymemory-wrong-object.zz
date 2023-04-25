@@ -1,0 +1,2 @@
+def main():
+    copymemory(1, 2, 3)

@@ -1,0 +1,6 @@
+def foo():
+    pass
+
+
+def main():
+    var a = 1, foo()

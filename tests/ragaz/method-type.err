@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In method-type.zz:
+
+    |
+ 14 |     var a = bar.generic_method
+    |                ^
+    |                object is a method, not a value
+@

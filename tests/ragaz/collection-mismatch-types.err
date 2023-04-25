@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In collection-mismatch-types.zz:
+
+    |
+  7 |     var b = convert(a)
+    |                     ^
+    |                     mismatch types ('tuple<int, int>' vs 'tuple<int, float>')
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

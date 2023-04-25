@@ -1,0 +1,10 @@
+class Bar:
+    i: int
+
+    def __init__(self, i: int):
+        self.i = i
+
+
+def main():
+    var a = Bar(1)
+    var b = a.foo

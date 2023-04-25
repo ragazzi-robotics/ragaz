@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In data-pointer-realloc-wrong-object.zz:
+
+    |
+  2 |     resize(1, 2)
+    |            ^
+    |            object type must be 'data<T>' to perform this operation ('anyint' not allowed)
+@

@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In method-arg-missing-type.zz:
+
+    |
+  1 | def foo(x):
+    |         ^
+    |         no type was specified to 'x'
+
+    Hint:
+    - Define the argument using the ': sometype' syntax.
+@

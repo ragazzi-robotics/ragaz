@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In data-pointer-offset-wrong-idx.zz:
+
+    |
+  3 |     var y = x[2.0]
+    |               ^
+    |               element index must be a integer type ('anyfloat' not allowed)
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

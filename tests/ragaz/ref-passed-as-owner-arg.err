@@ -1,0 +1,19 @@
+@
+ERROR
+=====
+
+    In ref-passed-as-owner-arg.zz:
+
+    |
+  1 | def foo(s: str):
+    |        ^
+    |        formal argument(s) defined as 'str'
+    |
+  8 |     foo(b)
+    |        ^
+    |        but '&str' argument(s) passed in call
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

@@ -1,0 +1,8 @@
+def foo(s: str):
+    print(s)
+
+
+def main():
+    var a = "blah"
+    var b = &a
+    foo(b)

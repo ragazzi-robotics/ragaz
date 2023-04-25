@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In var-not-found.zz:
+
+    |
+  2 |     print(x)
+    |           ^
+    |           object is not defined
+
+    Hint:
+    - Check whether there is a typo in the name.
+    - If you already declared it, check whether it is in this scope.
+@

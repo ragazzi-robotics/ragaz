@@ -1,0 +1,57 @@
+# test: {"type": "show"}
+
+
+def main():
+    pass
+
+
+def free_manual():
+    var a = "abc"
+    del a
+
+
+def free_reassignments():
+    var a = "abc"
+    if True:
+        a = "cde"
+    print(a)
+    var a = ["abc", "cde"]
+    a[0] = "fgh"
+    print(a[0])
+
+
+def free_shadows():
+    var a = "aaa"
+    print(a)
+
+    if True:
+        a = "bbb"
+        print(a)
+
+        if True:
+            var a = "ccc"
+            print(a)
+
+
+def move(s: str):
+    print(s)
+
+
+def test_move():
+    var aaa = "abc"
+    move(aaa)
+
+
+def move_and_return(s: str) -> str:
+    return s
+
+
+def test_move_and_return():
+    var a = "abc"
+    var a = move_and_return(a)
+
+
+def copy_instead_move():
+    var a = ["1", "2", "3"]
+    var b = a[0]  # This will be copied instead of moved as list elements can't be moved
+    var c = &a[0]

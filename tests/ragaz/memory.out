@@ -1,0 +1,94 @@
+def main() -> void:
+   0: # entry
+ {00} Pass
+ {01} Return
+
+def free_manual() -> void:
+   0: # entry
+ {00} Alloca a$0 [str]
+ {01} a$0 [str] = 'abc' [str]
+ {02} Del a$0 [str]
+ {03} Return
+
+def free_reassignments() -> void:
+   0: # entry
+ {00} Alloca a$0 [str]
+ {01} a$0 [str] = 'abc' [str]
+ {02} CondBranch True [bool] ? 1 : 2
+   1: # if-suite
+ {00} a$0 [str] = 'cde' [str]
+ {01} Branch 2
+   2: # if-exit
+ {00} print(a$0 [str], 1 [int], '\n' [str]) [void]
+ {01} Alloca a$1 [$list<str>:E]
+ {02} hidden$2 [$str:E] = 'abc' [$str:E]
+ {03} hidden$3 [$str:E] = 'cde' [$str:E]
+ {04} a$1 [$list<str>:E] = [hidden$2 [$str:E], hidden$3 [$str:E]]
+ {05} Element(a$1 [$list<str>:E], 0 [int]) [$str] = 'fgh' [$str:E]
+ {06} print(Element(a$1 [$list<str>], 0 [int]) [$str], 1 [int], '\n' [str]) [void]
+ {07} Del a$0 [str]
+ {08} Return
+
+def free_shadows() -> void:
+   0: # entry
+ {00} Alloca a$0 [str]
+ {01} a$0 [str] = 'aaa' [str]
+ {02} print(a$0 [str], 1 [int], '\n' [str]) [void]
+ {03} CondBranch True [bool] ? 1 : 4
+   1: # if-suite
+ {00} a$0 [str] = 'bbb' [str]
+ {01} print(a$0 [str], 1 [int], '\n' [str]) [void]
+ {02} CondBranch True [bool] ? 2 : 3
+   2: # if-suite
+ {00} Alloca a$1 [str]
+ {01} a$1 [str] = 'ccc' [str]
+ {02} print(a$1 [str], 1 [int], '\n' [str]) [void]
+ {03} Del a$1 [str]
+ {04} Branch 3
+   3: # if-exit
+ {00} Branch 4
+   4: # if-exit
+ {00} Del a$0 [str]
+ {01} Return
+
+def move(s$0 [$str]) -> void:
+   0: # entry
+ {00} print(s$0 [$str], 1 [int], '\n' [str]) [void]
+ {01} Del s$0 [$str]
+ {02} Return
+
+def test_move() -> void:
+   0: # entry
+ {00} Alloca aaa$0 [$str:E]
+ {01} aaa$0 [$str:E] = 'abc' [$str:E]
+ {02} move(aaa$0 [$str:E]) [void]
+ {03} Return
+
+def move_and_return(s$0 [$str:E]) -> $str:
+   0: # entry
+ {00} Return s$0 [$str:E]
+
+def test_move_and_return() -> void:
+   0: # entry
+ {00} Alloca a$0 [$str:E]
+ {01} a$0 [$str:E] = 'abc' [$str:E]
+ {02} Alloca a$1 [$str]
+ {03} a$1 [$str] = move_and_return(a$0 [$str:E]) [$str]
+ {04} Del a$1 [$str]
+ {05} Return
+
+def copy_instead_move() -> void:
+   0: # entry
+ {00} Alloca a$0 [list<str>]
+ {01} hidden$3 [$str:E] = '1' [$str:E]
+ {02} hidden$4 [$str:E] = '2' [$str:E]
+ {03} hidden$5 [$str:E] = '3' [$str:E]
+ {04} a$0 [list<str>] = [hidden$3 [$str:E], hidden$4 [$str:E], hidden$5 [$str:E]]
+ {05} Alloca b$1 [$str]
+ {06} b$1 [$str] = Element(a$0 [list<str>], 0 [int]) [$str]
+ {07} Alloca c$2 [&str]
+ {08} c$2 [&str] = Ref Element(a$0 [list<str>], 0 [int]) [$str]
+ {09} Del a$0 [list<str>]
+ {10} Del b$1 [$str]
+ {11} Return
+

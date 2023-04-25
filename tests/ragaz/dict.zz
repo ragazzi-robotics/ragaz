@@ -1,0 +1,14 @@
+def main():
+    var a = {'a': 1.0, 'b': 2.0, 'c': 3.0}
+    print(a)
+    a['z'] = 9
+    print(a['z'])
+
+    # TODO: Make this work:
+    #a.pop('a')
+
+    for item in a.keys():
+        print(item)
+
+    for item in a.values():
+        print(item)

@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In parse-mismatch-indent.zz:
+
+    |
+  3 |       print(a)
+    |       ^
+    |       indentation does not match any outer level
+@

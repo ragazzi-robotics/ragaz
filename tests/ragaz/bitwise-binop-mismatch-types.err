@@ -1,0 +1,16 @@
+@
+ERROR
+=====
+
+    In bitwise-binop-mismatch-types.zz:
+
+    |
+  2 |     print(1 >> 2.0)
+    |             ^
+    |             bitwise operation '>>' with types 'anyint' and 'anyfloat' cannot be performed
+
+    Hint:
+    - This operation can be performed only with integers.
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

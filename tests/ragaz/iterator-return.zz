@@ -1,0 +1,7 @@
+def foo(x: float) -> iterator<float>:
+    yield x
+    return x
+
+
+def main():
+    print(foo(1.0))

@@ -1,0 +1,60 @@
+def main():
+
+    # range: 0 to 1
+    print(bin(False))
+    print(bin(True))
+
+    # range: 0 to 256
+    print(bin(0 as byte))
+    print(bin(1 as byte))
+
+    # range: -128 to 127
+    #TODO: Make the code bellow produce: 0b1111111
+    #print(bin(-127 as i8))
+    print(bin(128 as i8))
+
+    # range: 0 to 255
+    print(bin(0 as u8))
+    print(bin(255 as u8))
+
+    # -32,768 to 32,767
+    print(bin(-32768 as i16))
+    print(bin(32767 as i16))
+
+    # 0 to 65,535
+    print(bin(0 as u16))
+    print(bin(65535 as u16))
+
+    # -2,147,483,648 to 2,147,483,647
+    print(bin(-2147483648 as i32))
+    print(bin(2147483647 as i32))
+
+    # 0 to 4,294,967,295
+    print(bin(0 as u32))
+    print(bin(4294967295 as u32))
+
+    # -2,147,483,648 to 2,147,483,647
+    print(bin(-2147483648 as i64))
+    print(bin(2147483647 as i64))
+
+    # 0 to 4,294,967,295
+    print(bin(0 as u64))
+    print(bin(4294967295 as u64))
+
+    # -(2^63) to (2^63)-1
+    #TODO: Make the code bellow produce: 0b1000000000000000000000000000000000000000000000000000000000000000
+    #print(bin((-(2**63)) as i128))
+    print(bin(((2^63)-1) as i128))
+
+    # 0 to 18,446,744,073,709,551,615
+    print(bin(0 as u128))
+    #TODO: Make the code bellow produce: 0b1111111111111111111111111111111111111111111111111111111111111111
+    #print(bin(18446744073709551615 as u128))
+
+    # -2,147,483,648 to 2,147,483,647
+    print(bin(-2147483648 as int))
+    print(bin(2147483647 as int))
+
+    # 0 to 4,294,967,295
+    print(bin(0 as uint))
+    print(bin(4294967295 as uint))

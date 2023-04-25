@@ -1,0 +1,22 @@
+def add(x: int, y: int) -> int:
+    return x + y
+
+
+def pick_one() -> int:
+    return 3
+
+
+def pick_three() -> tuple<int, int, int>:
+    return 5, 6, 7
+
+
+def main():
+    print(add(3, 4))
+
+    var a = pick_one()
+    print(a)
+
+    var b, c, d = pick_three()
+    print(b)
+    print(c)
+    print(d)

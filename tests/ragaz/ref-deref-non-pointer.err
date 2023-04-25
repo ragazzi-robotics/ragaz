@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In ref-deref-non-pointer.zz:
+
+    |
+  3 |     print(*a)
+    |            ^
+    |            cannot dereference a non-reference value ('str')
+
+    Hint:
+    - Only pointers created from '&' and '$' operators can be dereferenced.
+@

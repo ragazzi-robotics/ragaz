@@ -1,0 +1,17 @@
+def move<T>(obj: T):
+    pass
+
+
+class Bar:
+    i: int
+    def __init__(self, i: int):
+        self.i = i
+
+    def __str__(self) -> str:
+        return "Bar(" + str(self.i) + ")"
+
+
+def main():
+    var a = [Bar(1), Bar(2), Bar(3)]
+    var b = &a[1]
+    move(a[1])  # This needs be copied instead of moved as list elements can't be moved

@@ -1,0 +1,6 @@
+class Bar:
+    pass
+
+
+def main():
+    print(Bar())

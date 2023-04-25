@@ -1,0 +1,6 @@
+def foo(a: float, b: int = 3, c: int = 9) -> float:
+    return a + b + c
+
+
+def main():
+    print(foo(1, c=1))

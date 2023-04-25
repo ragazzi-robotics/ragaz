@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In element-no-set-item.zz:
+
+    |
+ 11 |     a[0] = 2
+    |       ^
+    |       'Bar' does not have a method '__setitem__'
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

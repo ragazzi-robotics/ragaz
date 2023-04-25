@@ -1,0 +1,63 @@
+def main():
+
+    var a = 0o377
+    print(a)
+
+    # range: 0 to 1
+    print(oct(False))
+    print(oct(True))
+
+    # range: 0 to 256
+    print(oct(0 as byte))
+    print(oct(1 as byte))
+
+    # range: -128 to 127
+    #TODO: Make the code bellow produce: 0o177
+    #print(oct(-127 as i8))
+    print(oct(128 as i8))
+
+    # range: 0 to 255
+    print(oct(0 as u8))
+    print(oct(255 as u8))
+
+    # -32,768 to 32,767
+    print(oct(-32768 as i16))
+    print(oct(32767 as i16))
+
+    # 0 to 65,535
+    print(oct(0 as u16))
+    print(oct(65535 as u16))
+
+    # -2,147,483,648 to 2,147,483,647
+    print(oct(-2147483648 as i32))
+    print(oct(2147483647 as i32))
+
+    # 0 to 4,294,967,295
+    print(oct(0 as u32))
+    print(oct(4294967295 as u32))
+
+    # -2,147,483,648 to 2,147,483,647
+    print(oct(-2147483648 as i64))
+    print(oct(2147483647 as i64))
+
+    # 0 to 4,294,967,295
+    print(oct(0 as u64))
+    print(oct(4294967295 as u64))
+
+    # -(2^63) to (2^63)-1
+    #TODO: Make the code bellow produce: 0o1000000000000000000000
+    #print(oct((-(2**63)) as i128))
+    print(oct(((2^63)-1) as i128))
+
+    # 0 to 18,446,744,073,709,551,615
+    print(oct(0 as u128))
+    #TODO: Make the code bellow produce: 0o1777777777777777777777
+    #print(oct(18446744073709551615 as u128))
+
+    # -2,147,483,648 to 2,147,483,647
+    print(oct(-2147483648 as int))
+    print(oct(2147483647 as int))
+
+    # 0 to 4,294,967,295
+    print(oct(0 as uint))
+    print(oct(4294967295 as uint))

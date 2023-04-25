@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In ref-immutable.zz:
+
+    |
+ 10 | def foo(obj: &Bar):
+    |         ^
+    |         object defined as not mutable
+    |
+ 11 |     obj.i = 2
+    |        ^
+    |        but changed here
+
+    Hint:
+    - Consider make it mutable putting the '~' operator in front its type.
+@

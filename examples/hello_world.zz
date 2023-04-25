@@ -1,0 +1,1 @@
+def main():    var a = {1, 2, 3, 4, 101, 5, 6, 1}    print(a)    a.add(9)    a.remove(1)    for element in a:        print(element)    var b = set([3, 2, 1])    var it = iter(b)    print(next(it))    # TODO: Make it work:    #var a = {"a", "b", "c"}    #a.add("d")    #a.remove("b")

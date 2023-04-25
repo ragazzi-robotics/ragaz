@@ -1,0 +1,8 @@
+isize = int
+
+
+def main():
+    var x: isize = 1
+    print(isinstance(x, isize))
+    print(isinstance(x, int))
+    print(isinstance(x, float))

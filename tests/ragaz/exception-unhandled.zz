@@ -1,0 +1,6 @@
+def foo():
+    raise Exception("blah")
+
+
+def main():
+    foo()

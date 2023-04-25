@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In cast-manual-mismatch-types.zz:
+
+    |
+  7 |     var z: f64 = x + y
+    |                    ^
+    |                    mismatch types ('f32' vs 'f64')
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

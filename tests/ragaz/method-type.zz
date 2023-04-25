@@ -1,0 +1,14 @@
+class Bar:
+
+    def __init__(self):
+        pass
+
+    def generic_method(self):
+        pass
+
+
+def main():
+
+    # Generic method
+    var bar = Bar.<int, float>()
+    var a = bar.generic_method

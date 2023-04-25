@@ -1,0 +1,4 @@
+TIPO = int
+
+def main():
+    var a = TIPO + 1

@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In function-wrong-default-arg.zz:
+
+    |
+  1 | def foo(a: float, b: int = 3, c: int) -> float:
+    |                               ^
+    |                               non-default arguments must come before default arguments
+
+    Hint:
+    - Move 'c' to front of 'b'
+@

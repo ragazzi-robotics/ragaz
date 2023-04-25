@@ -1,0 +1,13 @@
+var CONST = "constant0"
+
+
+def func1() -> str:
+    return "function1"
+
+
+def custom_range(start: int, end: int) -> iterator<int>:
+    var i = start
+    while i < end:
+        yield i
+        i += 1
+    raise Exception("end of iterator")

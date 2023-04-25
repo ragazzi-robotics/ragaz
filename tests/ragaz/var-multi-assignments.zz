@@ -1,0 +1,9 @@
+def main():
+    var a, b, c, d
+    var e: int, f: int = c, d = a, b = 1, 2.5
+    print(a)
+    print(b)
+    print(c)
+    print(d)
+    print(e)
+    print(f)

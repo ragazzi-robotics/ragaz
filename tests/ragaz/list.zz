@@ -1,0 +1,110 @@
+class Bar:
+    value: uint
+
+    def __init__(self, v: uint):
+        self.value = v
+
+    def __str__(self) -> str:
+        return "Bar(" + str(self.value) + ")"
+
+
+def test_is_even(num: float) -> bool:
+    return True if num % 2 == 0 else False
+
+
+def get_remain(num: float) -> float:
+    return num % 4
+
+
+def main():
+
+    var a = [1, 2, 3]
+    print(len(a))
+    print(a[0])
+    var i = 4
+    while i <= 20:
+        a.append(i)
+        print(a[i - 1])
+        i += 1
+    a.insert(1, 50)
+    print(a[1])
+    #TODO: make this work: print(a.pop())
+    print(2 in a)
+    print(99 in a)
+    a.remove(1)
+    print(a[0])
+
+    var b: i16 = a[1]
+    print(b)
+
+    var c = [9] * 3
+    print(c[2])
+
+    c[2] = 5
+    print(c[2])
+
+    var d = [0.5] * 3
+    d[2] = 1.0
+    print(d[2])
+
+    var e = ["avocado", "banana", "orange"]
+    print(e)
+    print(len(e))
+    print(e[0])
+    e.insert(1, "pineaple")
+    print(e[1])
+    #TODO: make this work: print(e.pop())
+    print("banana" in e)
+    print("strawberry" in e)
+    e.remove("avocado")
+    print(e[0])
+
+    var f = ["abc"] * 3
+    print(f[1])
+    f[1] = "cde"
+    print(f[1])
+
+    var h = [Bar(1), Bar(2)]
+    h[0].value = 4
+    print(h[0].value)
+
+    var j = [[0, 1], [2, 3]]
+    print(j[1][1])
+    print(isinstance(j, list<list<int>>))
+
+    print(all([True, False, True]))
+    print(all([True, True, True]))
+    print(any([False, False, False]))
+    print(any([False, True, False]))
+
+    var l: list<float> = [10.0, 20.0, 30.0, 40.0]
+
+    print(min(l))
+    print(min(l, 5))
+    print(max(l))
+    print(max(l, 99))
+
+    print(sum(l))
+    print(sum(l, 10))
+
+    for item in reversed(l):
+        print(item)
+
+    for item in filter(test_is_even, l):
+        print(item)
+
+    for item in map(get_remain, l):
+        print(item)
+
+    # TODO: enumerate(l) is raising errors because named arguments
+    for i, item in enumerate(l, 5):
+        print(i)
+        print(item)
+
+    for item_a, item_b in zip(e, l):
+        print(item_a)
+        print(item_b)
+
+    print(l)
+    #TODO: check why it's NOT raising errors when named argument is inexistent. Example: sorted(a, OTHER_NAME=True)
+    print(sorted(l, reverse=True))

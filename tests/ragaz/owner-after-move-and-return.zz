@@ -1,0 +1,8 @@
+def move<T>(obj: T) -> T:
+    return obj
+
+
+def main():
+    var s = "blah"
+    s = move(s)
+    print(s)

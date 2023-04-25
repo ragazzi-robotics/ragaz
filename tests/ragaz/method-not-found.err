@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In method-not-found.zz:
+
+    |
+  2 |     print(9.foo())
+    |           ^
+    |           'anyint' does not have a method 'foo'
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

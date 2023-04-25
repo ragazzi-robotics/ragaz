@@ -1,0 +1,17 @@
+# test: {"mut_check": ""}
+
+
+class Bar:
+    i: int
+    def __init__(self, i: int):
+        self.i = i
+
+
+def foo(c: ~&Bar):
+    pass
+
+
+def main():
+    var a = Bar(1)
+    var b: ~&Bar = &a
+    var c: ~&Bar = &a

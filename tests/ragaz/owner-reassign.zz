@@ -1,0 +1,11 @@
+def main():
+
+    var x = str(2014)
+    print(x)
+
+    x = str(2015)
+    print(x)
+
+    if True:
+        x = str(2016)
+        print(x)

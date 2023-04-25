@@ -1,0 +1,3 @@
+def main():
+    var x = array.<byte>(2)
+    resize(x.data, 2.0)

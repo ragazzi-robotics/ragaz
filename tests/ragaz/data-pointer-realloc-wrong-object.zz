@@ -1,0 +1,2 @@
+def main():
+    resize(1, 2)

@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In imported-module-not-found.zz:
+
+    |
+  1 | from foo import Bar
+    |      ^
+    |      no module named 'foo' was found
+
+    Hint:
+    - Check whether there is a typo in the name.
+    - Check if it is in the project folder or system path.
+@

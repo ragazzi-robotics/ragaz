@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In function-type-mismatch-types.zz:
+
+    |
+  6 |     var a: callable<<str, str>, str> = func
+    |                                        ^
+    |                                        mismatch types ('function(float, int) -> float' vs 'function(str, str) -> str')
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In decorator-not-found.zz:
+
+    |
+  1 | @foo
+    |  ^
+    |  decorator 'foo' not recognized
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

@@ -1,0 +1,5 @@
+from libc import time as time_c
+
+
+def time() -> int:
+    return time_c(None)

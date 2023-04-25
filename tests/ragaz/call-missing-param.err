@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In call-missing-param.zz:
+
+    |
+  1 | def foo(a: float, b: int, c: int = 9) -> float:
+    |        ^
+    |        function was declared with these arguments
+    |
+  6 |     print(foo(1, c=1))
+    |              ^
+    |              but the call is missing the 'b' argument(s)
+@

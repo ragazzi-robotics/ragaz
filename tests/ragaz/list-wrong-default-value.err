@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In list-wrong-default-value.zz:
+
+    |
+  3 |     var b = [a] * 5
+    |              ^
+    |              the default value must be a literal value between brackets
+@

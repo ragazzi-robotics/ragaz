@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In var-mismatch-type.zz:
+
+    |
+  4 |     a = "blah"
+    |         ^
+    |         mismatch types ('str' vs 'anyint')
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

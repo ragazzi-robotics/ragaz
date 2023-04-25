@@ -1,0 +1,16 @@
+# test: {"mut_check": ""}
+
+
+class Bar:
+    i: int
+    def __init__(self, i: int):
+        self.i = i
+
+
+def foo(obj: &Bar):
+    obj.i = 2
+
+
+def main():
+    var a = Bar(1)
+    foo(a)

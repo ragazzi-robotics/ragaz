@@ -1,0 +1,14 @@
+class Bar:
+    s: str
+    def __init__(self, s: str):
+        self.s = s
+
+
+def move<T>(obj: T):
+    pass
+
+
+def main():
+    var a = Bar("blah")
+    move(a.s)
+    print(a.s)

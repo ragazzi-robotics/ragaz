@@ -1,0 +1,6 @@
+def foo(x: &Bar):
+    pass
+
+
+def main():
+    pass

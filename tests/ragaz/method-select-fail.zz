@@ -1,0 +1,10 @@
+class Bar:
+    def __init__(self, x: int):
+        pass
+
+    def __init__(self, x: float):
+        pass
+
+
+def main():
+    var a = Bar("test")

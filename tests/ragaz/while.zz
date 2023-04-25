@@ -1,0 +1,16 @@
+def main():
+
+    var i: int = 0
+    while True:
+        if i == 3:
+            break
+
+        var j: float = 0
+        while True:
+            if j == 3:
+                break
+            print(j)
+            j += 1
+
+        print(i)
+        i += 1

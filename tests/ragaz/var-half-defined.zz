@@ -1,0 +1,28 @@
+def foo():
+    return
+    var a = "a"
+
+
+def main():
+    foo()
+
+    while 0:
+        var a = "b"
+
+    var b = 0
+    while 1:
+        if 1:
+            break
+            var a = "c"
+        elif 0:
+            var a = "d"
+
+        if b > 1:
+            break
+            var a = "e"
+        else:
+            b += 1
+            continue
+            var a = "f"
+
+    print(a)

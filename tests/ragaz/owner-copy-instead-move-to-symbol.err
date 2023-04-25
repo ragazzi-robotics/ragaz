@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In owner-copy-instead-move-to-symbol.zz:
+
+    |
+ 13 |     var c = a[1]  # This needs be copied instead of moved as list elements can't be moved
+    |              ^
+    |              value cannot be moved here but only copied or referenced
+
+    Hint:
+    - If you don't intend copy it, consider reference the value using '&' operator. Otherwise, implement a magic method '__copy__' in 'Bar'.
+@

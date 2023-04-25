@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In ternary-mismatch-type.zz:
+
+    |
+  3 |     var a = 1 if b else "a"
+    |               ^
+    |               mismatch types ('anyint' vs 'str')
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

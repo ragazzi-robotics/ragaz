@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In method-arg-self-explicit-type.zz:
+
+    |
+  2 |     def __init__(self: int):
+    |                        ^
+    |                        'self' argument cannot have an explicit type
+
+    Hint:
+    - Remove ': int'.
+@

@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In iterator-return.zz:
+
+    |
+  1 | def foo(x: float) -> iterator<float>:
+    |                               ^
+    |                               function must yield a value because it is iterator
+    |
+  3 |     return x
+    |            ^
+    |            but return a value
+
+    Hint:
+    - Use the 'yield' instead of 'return' keyword.
+@

@@ -1,0 +1,42 @@
+class Bar<T, T2>:
+    foo: callable<<T, T2>, T>
+
+    def __init__(self):
+        self.foo = None
+
+
+def func(x: float, y: int) -> float:
+    return x + y
+
+
+def generic_func<T, T2>(x: T, y: T2) -> T:
+    return x + y
+
+
+def return_func<T, T2>(fn: callable<<T, T2>, T>, x: T, y: T2) -> callable<<T, T2>, T>:
+    return fn
+
+
+def test_func<F, T, T2>(fn: F, x: T, y: T2):
+
+    # Function passed to attribute
+    var bar = Bar.<T, T2>()
+    bar.foo = fn
+    bar.foo(x, y)
+
+    # Function holded in attribute passed to variable
+    var a = bar.foo
+    print(a(x, y))
+
+    # Function holded in variable passed as argument
+    var b = return_func(a, x, y)
+    print(b(x, y))
+
+
+def main():
+
+    # Normal function
+    test_func(func, 1.5, 2)
+
+    # Generic function
+    test_func(generic_func.<int, float>, 3, 2.5)

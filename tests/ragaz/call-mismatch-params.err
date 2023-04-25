@@ -1,0 +1,19 @@
+@
+ERROR
+=====
+
+    In call-mismatch-params.zz:
+
+    |
+  1 | def foo(i: i32) -> i32:
+    |        ^
+    |        formal argument(s) defined as 'i32'
+    |
+  6 |     foo(3, 4)
+    |        ^
+    |        but 'anyint', 'anyint' argument(s) passed in call
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

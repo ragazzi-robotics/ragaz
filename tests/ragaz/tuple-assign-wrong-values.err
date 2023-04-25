@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In tuple-assign-wrong-values.zz:
+
+    |
+  6 |     var a, b, c = &foo()
+    |         ^
+    |         number of elements (3) exceeds the number of values to be assigned (2)
+@

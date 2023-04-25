@@ -1,0 +1,16 @@
+class Car:
+    def __init__(self):
+        pass
+
+    def get_model(self) -> int:
+        return 123
+
+
+trait Vehicle:
+    def get_model(self) -> int
+    def get_vendor(self) -> str
+
+
+def main():
+    var car = Car()
+    var car2: Vehicle = car

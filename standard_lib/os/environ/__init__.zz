@@ -1,0 +1,12 @@
+from libc import getenv
+
+
+@inline
+def get(variable: &str) -> str:
+    var res = getenv(variable.arr.data)
+    if res is None:
+        return ""
+    else:
+        var arr = array.<byte>(strlen(res))
+        arr.data = res
+        return str(arr)

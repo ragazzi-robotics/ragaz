@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In var-definition-missing-type.zz:
+
+    |
+  2 |     var x
+    |         ^
+    |         no type was specified for the variable
+
+    Hint:
+    - Declare the variable using the ': sometype' syntax.
+    - Assign a value to variable in order to the type be inferred.
+@

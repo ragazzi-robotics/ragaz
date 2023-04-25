@@ -1,0 +1,5 @@
+import os
+
+
+def main():
+    print("success" if os.environ.get("Ragazzi Robotics") == "" else "failure")

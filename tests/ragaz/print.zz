@@ -1,0 +1,10 @@
+def main():
+
+    print(9.999)
+    print(1979)
+
+    var x = 2030
+    print(str(x))
+
+    var y = "Ragazzi"
+    print(y)

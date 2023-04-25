@@ -1,0 +1,19 @@
+# test: {"no_auto_cast": ""}
+
+
+def main():
+
+    var a : i16 = 1
+    var b : i32 = 2
+    var c = a as i32 + b
+    print(c)
+
+    var d: f32 = 1.0
+    var e: f32 = 2.0
+    var f: f64 = (d / e) as f64
+    print(f)
+
+    var g = c as f64 * f
+    print(g)
+
+    print(g as i32)

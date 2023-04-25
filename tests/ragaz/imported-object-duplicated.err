@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In imported-object-duplicated.zz:
+
+    |
+  1 | from inner_module import CONST
+    |                          ^
+    |                          object named 'CONST' was imported here
+    |
+  2 | import inner_module
+    |        ^
+    |        but was imported again here
+@

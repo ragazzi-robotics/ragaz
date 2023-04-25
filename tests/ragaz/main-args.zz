@@ -1,0 +1,6 @@
+# test: {"args": ["-h", "help"]}
+
+
+def main(args: list<str>):
+    print(args[0])
+    print(args[1])

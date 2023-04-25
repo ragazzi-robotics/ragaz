@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In value-not-allowed-type-class.zz:
+
+    |
+  2 |     var a = data + 1
+    |             ^
+    |             object is a type, not a value
+@

@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In init-return-type.zz:
+
+    |
+  2 |     def __init__(self) -> i32:
+    |                           ^
+    |                           method '__init__' must return no value
+
+    Hint:
+    - How about remove '-> i32'?
+@

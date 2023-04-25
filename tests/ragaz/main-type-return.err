@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In main-type-return.zz:
+
+    |
+  1 | def main() -> float:
+    |               ^
+    |               'main()' must return either nothing or 'i32' ('float' not allowed)
+@

@@ -1,0 +1,1365 @@
+# TODO:
+# Implement the bellow functions in Ragaz code. They still are C functions because we need to accelerate the process
+# of having a standard library and so to have a usable version of Ragaz. But as a proof of concept, all they should
+# be implemented in Ragaz code as standard library be finished.
+
+@extern_c
+def malloc(size: uint) -> data<byte>
+
+@extern_c
+def realloc(ptr: data<byte>, size: uint) -> data<byte>
+
+@extern_c
+def free(ptr: data<byte>)
+
+@extern_c
+def llvm_memmove_p0_p0_i32(dst: data<byte>, src: data<byte>, len: int, foo: i32, isvolatile: bool)
+
+@extern_c
+def llvm_memmove_p0_p0_i64(dst: data<byte>, src: data<byte>, len: int, foo: i32, isvolatile: bool)
+
+@extern_c
+def llvm_memcpy_p0_p0_i32(dst: data<byte>, src: data<byte>, len: int, foo: i32, isvolatile: bool)
+
+@extern_c
+def llvm_memcpy_p0_p0_i64(dst: data<byte>, src: data<byte>, len: int, foo: i32, isvolatile: bool)
+
+@extern_c
+def llvm_eh_typeid_for(type_info: data<byte>) -> i32
+
+@extern_c
+def llvm_powi_f32_i32(number: f32, exponent: i32) -> f32
+
+@extern_c
+def llvm_powi_f64_i32(number: f64, exponent: i32) -> f64
+
+@extern_c
+def strlen(str: data<byte>) -> i32
+
+@extern_c
+def strncmp(str1: data<byte>, str2: data<byte>, len: uint) -> i32
+
+@extern_c
+def snprintf(str: data<byte>, size: i32, format: data<byte>, *args) -> i32
+
+@extern_c
+def write(file_descriptor: i32, buffer: data<byte>, len: uint) -> int
+
+@extern_c
+def exit(exit_code: i32)
+
+@extern_c
+def _Unwind_RaiseException(exc: &UnwEx) -> int
+
+
+# transition/temporary types
+
+class anytype:
+    def __repr__(self) -> str:
+        return None
+
+
+class anyint:
+    pass
+
+
+class anyfloat:
+    pass
+
+
+# basic types
+
+class data<T>:
+    pass
+
+
+class void:
+    pass
+
+
+class bool:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __str__(self) -> str:
+        return "True" if self else "False"
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 4)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 4)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 4)
+
+
+# range: -128 to 127
+class i8:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%hhi".format(self, 4)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 11)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 5)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 6)
+
+
+# range: 0 to 255
+class u8:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%hhu".format(self, 3)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 11)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 5)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 6)
+
+
+# -32,768 to 32,767
+class i16:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%hi".format(self, 7)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 19)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 7)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 9)
+
+
+# 0 to 65,535
+class u16:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    def __str__(self) -> str:
+        return "%hu".format(self, 6)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 19)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 7)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 9)
+
+
+# -2,147,483,648 to 2,147,483,647
+class i32:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    def __str__(self) -> str:
+        return "%i".format(self, 14)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 35)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 11)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 14)
+
+
+# 0 to 4,294,967,295
+class u32:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%u".format(self, 13)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 35)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 11)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 14)
+
+
+# -2,147,483,648 to 2,147,483,647
+class i64:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%li".format(self, 14)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 35)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 11)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 14)
+
+
+# 0 to 4,294,967,295
+class u64:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%lu".format(self, 34)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 35)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 11)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 14)
+
+
+# -(2^63) to (2^63)-1
+class i128:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%lli".format(self, 27)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 67)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 19)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 25)
+
+
+# 0 to 18,446,744,073,709,551,615
+class u128:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        return "%llu".format(self, 26)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 67)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 19)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 25)
+
+
+class f32:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0.0
+
+    def __str__(self) -> str:
+        var num = self
+        return "%f".format(num as float, 20)  # TODO: Try remove the cast "as float"
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+
+class f64:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0.0
+
+    def __str__(self) -> str:
+        return "%lf".format(self, 20)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+
+class byte:
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(Self)
+
+    @inline
+    def __bool__(self) -> bool:
+        return self != 0
+
+    def __str__(self) -> str:
+        var arr = array.<byte>(1)
+        arr[0] = *self
+        return str(arr)
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __bin__(self) -> str:
+        return "0b%b".format(self, 10)
+
+    def __hex__(self) -> str:
+        return "0x%x".format(self, 4)
+
+    def __oct__(self) -> str:
+        return "0o%o".format(self, 5)
+
+
+class array<T>:
+    len: uint
+    data: data<T>
+
+    @inline
+    def __init__(self, len: uint, data: data<T>):
+        self.len = len
+        self.data = data
+
+    @inline
+    def __bool__(self) -> bool:
+        return len(self) > 0
+
+    @inline
+    def __len__(self) -> uint:
+        return self.len
+
+    def __eq__(self, other: &Self) -> bool:
+        if len(self) != len(other):
+            return False
+
+        var i = 0
+        while i < len(self):
+            if self.data[i] != other.data[i]:
+                return False
+            i += 1
+
+        return True
+
+    def __contains__(self, value: &T) -> bool:
+        var i = 0
+        while i < len(self):
+            if self.data[i] == value:
+                return True
+            i += 1
+        return False
+
+    @inline
+    def __getitem__(self, pos: uint) -> T:
+        if pos < len(self):
+            return self.data[pos]
+        else:
+            raise Exception("index out of range")
+
+    @inline
+    def __setitem__(self, pos: uint, item: T):
+        if pos < len(self):
+            self.data[pos] = item
+        else:
+            raise Exception("index out of range")
+
+    def resize(self, new_len: uint):
+        self.len = new_len
+        resize(self.data, new_len)
+
+
+class str:
+    arr: array<byte>
+
+    @inline
+    def __new__(src2: &ToStr) -> str:
+        return src2.__str__()
+
+    @inline
+    def __init__(self, arr: array<byte>):
+        self.arr = arr
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(uint) + sizeof(data<byte>)  # len + data
+
+    @inline
+    def __bool__(self) -> bool:
+        return len(self.arr) > 0
+
+    @inline
+    def __str__(self) -> str:
+        return self.__copy__()
+
+    @inline
+    def __repr__(self) -> str:
+        return "'" + self + "'"
+
+    @inline
+    def __len__(self) -> uint:
+        return len(self.arr)
+
+    @inline
+    def __copy__(self) -> str:
+        var arr = array.<byte>(len(self))
+        copymemory(self.arr.data, arr.data, len(self))
+        return str(arr)
+
+    @inline
+    def __getitem__(self, pos: uint) -> byte:
+        return self.arr[pos]
+
+    @inline
+    def __setitem__(self, pos: uint, item: byte):
+        self.arr[pos] = item
+
+    def __eq__(self, other: &Self) -> bool:
+        if len(self) != len(other):
+            return False
+        var len = len(self) if len(self) < len(other) else len(other)
+        var cmp = strncmp(self.arr.data, other.arr.data, len)
+        return cmp == 0
+
+    def __lt__(self, other: &Self) -> bool:
+        var len = len(self) if len(self) < len(other) else len(other)
+        var cmp = strncmp(self.arr.data, other.arr.data, len)
+        if cmp < 0:
+            return True
+        elif cmp > 0:
+            return False
+        else:
+            return len(self) < len(other)
+
+    def __le__(self, other: &Self) -> bool:
+        var len = len(self) if len(self) < len(other) else len(other)
+        var cmp = strncmp(self.arr.data, other.arr.data, len)
+        if cmp <= 0:
+            return True
+        else:
+            return False
+
+    def __gt__(self, other: &Self) -> bool:
+        var len = len(self) if len(self) < len(other) else len(other)
+        var cmp = strncmp(self.arr.data, other.arr.data, len)
+        if cmp > 0:
+            return True
+        elif cmp < 0:
+            return False
+        else:
+            return len(self) > len(other)
+
+    def __ge__(self, other: &Self) -> bool:
+        var len = len(self) if len(self) < len(other) else len(other)
+        var cmp = strncmp(self.arr.data, other.arr.data, len)
+        if cmp >= 0:
+            return True
+        else:
+            return False
+
+    def __add__(self, other: &Self) -> str:
+        var sum = len(self) + len(other)
+        var arr = array.<byte>(sum)
+        copymemory(self.arr.data, arr.data, len(self))
+        var rest = offset(arr.data, len(self))
+        copymemory(other.arr.data, rest, len(other))
+        return str(arr)
+
+    def format<T>(self, num: &T, max_length: uint) -> str:
+        var formatted = array.<byte>(max_length)
+        formatted.len = snprintf(formatted.data, max_length, self.arr.data, num)
+        return str(formatted)
+
+
+class tuple<E0, E1, E2, E3, E4, E5, E6, E7>:
+    # Yes, the tuple type is a bit verbose but unfortunately this is the best way (at moment) to host the tuple
+    # functions and so avoid use the compiler to perform the same functionality. Although verbose, neither all
+    # attributes and functions will be used and included in the binary file. For example, if the tuple has 3 elements
+    # then attributes from 'element_3' onwards will be discarded as well as functions like 'eq_4' and 'str_4'
+    # onwards. The function '__str__', for instance, which call a ghost function called '__last_str__' will call
+    # 'str_3' (used for concatenate until 3 elements) as '__last_str__' will be internally replaced to 'str_3'
+    # during tuple type creation.
+
+    len: uint
+    element_0: E0
+    element_1: E1
+    element_2: E2
+    element_3: E3
+    element_4: E4
+    element_5: E5
+    element_6: E6
+    element_7: E7
+
+    @inline
+    def __str__(self) -> str:
+        return "(" + self.last_str() + ", )"
+
+    @inline
+    def str_2(self) -> str:
+        return repr(self.element_0) + ", " + repr(self.element_1)
+
+    @inline
+    def str_3(self) -> str:
+        return self.str_2() + ", " + repr(self.element_2)
+
+    @inline
+    def str_4(self) -> str:
+        return self.str_3() + ", " + repr(self.element_3)
+
+    @inline
+    def str_5(self) -> str:
+        return self.str_4() + ", " + repr(self.element_4)
+
+    @inline
+    def str_6(self) -> str:
+        return self.str_5() + ", " + repr(self.element_5)
+
+    @inline
+    def str_7(self) -> str:
+        return self.str_6() + ", " + repr(self.element_6)
+
+    @inline
+    def str_8(self) -> str:
+        return self.str_7() + ", " + repr(self.element_7)
+
+    @inline
+    def __eq__(self, other: &Self) -> bool:
+        return self.last_eq(other)
+
+    @inline
+    def eq_2(self, other: &Self) -> bool:
+        if self.element_0 != other.element_0:
+            return False
+        return self.element_1 == other.element_1
+
+    @inline
+    def eq_3(self, other: &Self) -> bool:
+        if not self.eq_2(other):
+            return False
+        return self.element_2 == other.element_2
+
+    @inline
+    def eq_4(self, other: &Self) -> bool:
+        if not self.eq_3(other):
+            return False
+        return self.element_3 == other.element_3
+
+    @inline
+    def eq_5(self, other: &Self) -> bool:
+        if not self.eq_4(other):
+            return False
+        return self.element_4 == other.element_4
+
+    @inline
+    def eq_6(self, other: &Self) -> bool:
+        if not self.eq_5(other):
+            return False
+        return self.element_5 == other.element_5
+
+    @inline
+    def eq_7(self, other: &Self) -> bool:
+        if not self.eq_6(other):
+            return False
+        return self.element_6 == other.element_6
+
+    @inline
+    def eq_8(self, other: &Self) -> bool:
+        if not self.eq_7(other):
+            return False
+        return self.element_7 == other.element_7
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    @inline
+    def __len__(self) -> uint:
+        return self.len
+
+
+class list<T>:
+    len: uint
+    arr: array<T>
+
+    @inline
+    def __init__(self, arr: array<T>):
+        self.len = len(arr)
+        self.arr = arr
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(uint) + sizeof(uint) + sizeof(data<T>)  # len + allocated + data
+
+    @inline
+    def __bool__(self) -> bool:
+        return len(self) > 0
+
+    def __str__(self) -> str:
+        var s = ""
+        var i = 0
+        while i < len(self):
+            s += repr(str(self.arr[i])) + ", "
+            i += 1
+        s = "[" + s + "]"
+        return s
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    @inline
+    def __len__(self) -> uint:
+        return self.len
+
+    def __eq__(self, other: &Self) -> bool:
+        if len(self) != len(other):
+            return False
+
+        var i = 0
+        while i < len(self):
+            if self.arr[i] != other.arr[i]:
+                return False
+            i += 1
+
+        return True
+
+    @inline
+    def __copy__(self) -> Self:
+        var arr = array.<T>(len(self))
+        copymemory(self.arr.data, arr.data, len(self))
+        return list.<T>(arr)
+
+    def _resize(self, new_len: uint):
+        if new_len > len(self.arr) or new_len < (len(self.arr) / 2):
+            #TODO: This is the way that CPython scalates the allocation of lists:
+            #  self.arr.resize(new_len + (new_len >> 3) + (3 if new_len < 9 else 6))
+            #  Test if it is faster than just double the allocation size:
+            self.arr.resize(new_len * 2)
+        self.len = new_len
+
+    @inline
+    def __getitem__(self, pos: uint) -> T:
+        if pos <= len(self):
+            return self.arr[pos]
+        else:
+            raise Exception("index out of range")
+
+    @inline
+    def __setitem__(self, pos: uint, item: T):
+        if pos <= len(self):
+            self.arr[pos] = item
+        else:
+            raise Exception("index out of range")
+
+    @inline
+    def __contains__(self, value: &T) -> bool:
+        var i = 0
+        while i < len(self):
+            if self.arr.data[i] == value:
+                return True
+            i += 1
+        return False
+
+    @inline
+    def __iter__(self) -> list_iterator<&Self, T>:
+        var iterator = list_iterator.<&Self, T>(self)
+        return iterator
+
+    @inline
+    def append(self, element: T):
+        self._resize(len(self) + 1)
+        self.arr[len(self) - 1] = element
+
+    def insert(self, pos: uint, element: T):
+        self._resize(len(self) + 1)
+        var src = offset(self.arr.data, pos)
+        var dst = offset(self.arr.data, pos + 1)
+        movememory(src, dst, len(self) - pos)
+        self.arr[pos] = element
+
+    #TODO: make this work:
+    # Check a way to move values from list instead of copy them. Maybe 'movememory()'?
+    #@inline
+    #def pop(self) -> T:
+    #    var element = self.arr[len(self) - 1]
+    #    self._resize(len(self) - 1)
+    #    return element
+
+    def remove(self, element: T):
+        var i = 0
+        while i < len(self):
+            if self.arr[i] == element:
+                var src = offset(self.arr.data, i + 1)
+                var dst = offset(self.arr.data, i)
+                movememory(src, dst, len(self) - i - 1)
+                self._resize(len(self) - 1)
+                break
+            i += 1
+
+
+class list_iterator<L, I>:
+    source: L
+    idx: int
+
+    def __init__(self, source: L):
+        self.source = source
+        self.idx = -1
+
+    def __iter__(self) -> &Self:
+        return self
+
+    def __next__(self) -> I:
+        self.idx += 1
+        if self.idx == len(self.source):
+            raise Exception("end of iterator")
+        else:
+            return self.source[self.idx]
+
+
+# 1000003 is the capacity of the dict or set. It must to be a prime number because it makes the mod
+# operation less "predictable".
+var HASHABLE_CAPACITY = 1000003
+
+
+def hash(key: &str) -> uint:
+    """
+    A hash function is a function that can map a piece of data of any length to a fixed-length value, called 'hash'.
+    Ragaz uses Knuth multiplicative hash once it is very simple and fast.
+    """
+    var hashed_value: uint = 0
+    var i = 0
+    while i < len(key):
+        hashed_value += key[i] as uint
+        i += 1
+
+    return hashed_value % HASHABLE_CAPACITY
+
+
+class dict<K, V>:
+    """
+    A dictionary is typically implemented by creating a variable number of buckets that will contain the data and
+    indexing this data by hashing their keys. The hash value of the key will determine the correct bucket to
+    be used for that particular piece of data.
+
+    A bucket can be used by one or more keys once them could have the same hash, ie they collide.
+    Ragaz uses 'separate chaining' as strategy to resolve collisions in the dictionary. It consists of creating
+    a chain of values in the same bucket by using a nested list, which have to be traversed entirely when looking
+    for a specific value in an over occupied bucket.
+    """
+
+    buckets: list<list<tuple<K, V>>>
+    len: uint
+
+    def __init__(self):
+        self.buckets = []
+        self.len = 0
+
+    # TODO: Check a way to move values from list instead of copy them
+    #def __init__(self, elements: list<tuple<K, V>>):
+    #    self.buckets = []
+    #    self.len = 0
+    #    var i = 0
+    #    while i < len(elements):
+    #        var key, value = elements[i]
+    #        self.__setitem__(key, value)
+    #        i += 1
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return sizeof(uint) + len(self.buckets) * sizeof(list<list<tuple<K, V>>>)  # len + buckets
+
+    @inline
+    def __bool__(self) -> bool:
+        return len(self) > 0
+
+    def __str__(self) -> str:
+        var s = ""
+        var i = 0
+        while i < len(self.buckets):
+            var j = 0
+            while j < len(self.buckets[i]):
+                s += repr(str(self.buckets[i][j][0])) + ": " + repr(str(self.buckets[i][j][1])) + ", "
+                j += 1
+            i += 1
+        s = "{" + s + "}"
+        return s
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    @inline
+    def __len__(self) -> uint:
+        return self.len
+
+    def _get_bucket(self, key: K) -> &list<tuple<K, V>>:
+        var hashed_value = hash(str(key))
+        var idx = hashed_value % HASHABLE_CAPACITY
+
+        # Add new buckets if new item's index require them
+        if idx >= len(self.buckets):
+            var count = idx - len(self.buckets) + 1
+            var i = 0
+            while i < count:
+                self.buckets.append([])
+                i += 1
+
+        return self.buckets[idx]
+
+    def __getitem__(self, input_key: K) -> V:
+        var bucket = self._get_bucket(input_key)
+        var i = 0
+        while i < len(bucket):
+            var key, value = bucket[i]
+            if key == input_key:
+                return value
+            i += 1
+        raise Exception("item not found")
+
+    def __setitem__(self, input_key: K, input_value: V):
+        var bucket = self._get_bucket(input_key)
+        var bucket_idx
+        var found = False
+        var i = 0
+        while i < len(bucket):
+            var key, value = bucket[i]
+            if key == input_key:
+                bucket_idx = i
+                found = True
+                break
+            i += 1
+        if not found:
+            bucket.append((None, None))
+            bucket_idx = len(bucket) - 1
+            self.len += 1
+        bucket[bucket_idx] = input_key, input_value
+
+    # TODO: make this work:
+    # Check a way to move values from list instead of copy them. Maybe 'movememory()'?
+    #def pop(self, input_key: K) -> V:
+    #    var bucket = self._get_bucket(input_key)
+    #    var i = 0
+    #    while i < len(bucket):
+    #        var key, value = bucket[i]
+    #        if key == input_key:
+    #            bucket.remove(bucket[i])
+    #            self.len -= 1
+    #            return value
+    #        i += 1
+    #    raise Exception("item not found")
+
+    def keys(self) -> iterator<K>:
+        var i = 0
+        while i < len(self.buckets):
+            var j = 0
+            while j < len(self.buckets[i]):
+                var key = self.buckets[i][j][0]
+                yield key
+                j += 1
+            i += 1
+        raise Exception("end of iterator")
+
+    def values(self) -> iterator<V>:
+        var i = 0
+        while i < len(self.buckets):
+            var j = 0
+            while j < len(self.buckets[i]):
+                var value = self.buckets[i][j][1]
+                yield value
+                j += 1
+            i += 1
+        raise Exception("end of iterator")
+
+
+class set<T>:
+    """
+    A set is typically implemented by creating a variable number of buckets that will contain the data and
+    indexing this data by hashing their values. The hashed value will determine the correct bucket to
+    be used for that particular piece of data.
+
+    A bucket can be used by one or more values once them could have the same hash, ie they collide.
+    Ragaz uses 'separate chaining' as strategy to resolve collisions in the dictionary. It consists of creating
+    a chain of values in the same bucket by using a nested list, which have to be traversed entirely when looking
+    for a specific value in an over occupied bucket.
+    """
+
+    buckets: list<list<T>>
+    len: uint
+
+    def __init__(self):
+        self.buckets = []
+        self.len = 0
+
+    def __init__(self, elements: list<T>):
+        self.buckets = []
+        self.len = 0
+        var i = 0
+        while i < len(elements):
+            self.add(elements[i])
+            i += 1
+
+    @inline
+    def __sizeof__(self) -> uint:
+        return len(self.buckets) * sizeof(list<list<T>>)  # buckets
+
+    def __str__(self) -> str:
+        var s = ""
+        var i = 0
+        while i < len(self.buckets):
+            var j = 0
+            while j < len(self.buckets[i]):
+                s += repr(str(self.buckets[i][j])) + ", "
+                j += 1
+            i += 1
+        s = "{" + s + "}"
+        return s
+
+    @inline
+    def __repr__(self) -> str:
+        return str(self)
+
+    @inline
+    def __len__(self) -> uint:
+        return self.len
+
+    @inline
+    def __iter__(self) -> set_iterator<&Self, T>:
+        var iterator = set_iterator.<&Self, T>(self)
+        return iterator
+
+    def _get_bucket(self, input_value: &T) -> &list<T>:
+        var hashed_value = hash(str(input_value))
+        var idx = hashed_value % HASHABLE_CAPACITY
+
+        # Add new buckets if new item's index require them
+        if idx >= len(self.buckets):
+            var count = idx - len(self.buckets) + 1
+            var i = 0
+            while i < count:
+                self.buckets.append([])
+                i += 1
+
+        return self.buckets[idx]
+
+    def add(self, input_value: T):
+        var bucket = self._get_bucket(input_value)
+        var found = False
+        var i = 0
+        while i < len(bucket):
+            var value = bucket[i]
+            if value == input_value:
+                found = True
+                break
+            i += 1
+        if not found:
+            bucket.append(input_value)
+            self.len += 1
+
+    def remove(self, input_value: T):
+        var bucket = self._get_bucket(input_value)
+        var i = 0
+        while i < len(bucket):
+            var value = bucket[i]
+            if value == input_value:
+                bucket.remove(bucket[i])
+                self.len -= 1
+                break
+            i += 1
+
+
+class set_iterator<L, I>:
+    source: L
+    bucket_idx: int
+    element_idx: int
+
+    def __init__(self, source: L):
+        self.source = source
+        self.bucket_idx = -1
+        self.element_idx = -1
+
+    def __iter__(self) -> &Self:
+        return self
+
+    def __next__(self) -> I:
+        if self.bucket_idx >=0 and self.element_idx >= 0:
+            if self.element_idx + 1 < len(self.source.buckets[self.bucket_idx]):
+                self.element_idx += 1
+                return self.source.buckets[self.bucket_idx][self.element_idx]
+
+        while self.bucket_idx + 1 < len(self.source.buckets):
+            self.bucket_idx += 1
+            if len(self.source.buckets[self.bucket_idx]) > 0:
+                self.element_idx = 0
+                return self.source.buckets[self.bucket_idx][self.element_idx]
+
+        raise Exception("end of iterator")
+
+
+# traits
+
+trait ToStr:
+    def __str__(self) -> str
+
+
+trait ToBool:
+    def __bool__(self) -> bool
+
+
+#TODO: Check if it's possible use traits in functions that have lists and sets as arguments to extend its usability
+# beyond lists
+#trait iterable<T>:
+#    def __iter__(self) -> iterator<T>
+#
+#
+#trait iterator<I>:
+#    def __next__(self) -> I
+
+
+# Exception handling
+
+
+class UnwEx:
+    ehid: u64
+    clean: callable<<i32, &Self>, void>
+    priv1: u64
+    priv2: u64
+
+    def __init__(self, ehid: u64):
+        self.ehid = ehid
+        self.clean = None
+        self.priv1 = None
+        self.priv2 = None
+
+
+class Exception:
+    header: UnwEx
+    switch_value: i32
+    lsda: data<byte>
+    lpad: data<byte>
+    msg: str
+
+    def __init__(self, msg: str):
+        self.msg = msg
+        self.header = None
+        self.switch_value = None
+        self.lsda = None
+        self.lpad = None
+
+
+def runtime_error_clean(reason: i32, un_exc: &UnwEx):
+    if reason == 1:
+        print("foreign exception caught", file=2)
+        exit(1)
+
+
+def __raise__(exc: &Exception):
+    var un_exc = transmute(exc, UnwEx)
+    un_exc.ehid = 27111979  # RAGAZ_CLASS
+    un_exc.clean = runtime_error_clean
+    var err = _Unwind_RaiseException(un_exc)
+    if err == 5:
+        print("unhandled exception: " + exc.msg, file=2)
+    else:
+        print("error while raising exception: " + str(err), file=2)
+    exit(1)
+
+
+# functions
+
+def __args__(argc: i32, argv: data<data<byte>>) -> list<str>:
+    var ls: list<str> = []
+    var i = 1  # skip the file name
+    while i < argc:
+        var length = strlen(argv[i]) as uint
+        var arr = array.<byte>(length)
+        var j: uint = 0
+        while j < length:
+            arr.data[j] = argv[i][j]
+            j += 1
+        var s = str(arr)
+        ls.append(s)
+        i += 1
+    return ls
+
+
+@inline
+def abs<T>(num: T) -> T:
+    if num >= 0:
+        return num
+    else:
+        return -num
+
+
+def all<T>(collection: &list<T>) -> bool:
+    for item in collection:
+        if not item:
+            return False
+    return True
+
+
+def any<T>(collection: &list<T>) -> bool:
+    for item in collection:
+        if item:
+            return True
+    return False
+
+
+def divmod<N, D>(numerator: N, denominator: D) -> tuple<int, float>:
+    return (numerator / denominator) as int, (numerator % denominator) as float
+
+
+def enumerate<T>(collection: &list<T>, start: int = 0) -> iterator<tuple<int, T>>:
+    var n = start
+    for item in collection:
+        yield n, item
+        n += 1
+    raise Exception("end of iterator")
+
+
+def filter<T, I>(fn: callable<<I>, bool>, collection: &list<T>) -> iterator<T>:
+    for item in collection:
+        if fn(item):
+            yield item
+    raise Exception("end of iterator")
+
+
+def map<T, I, R>(fn: callable<<I>, R>, collection: &list<T>) -> iterator<R>:
+    for item in collection:
+        yield fn(item)
+    raise Exception("end of iterator")
+
+
+def max<T>(collection: &list<T>, default: int = None) -> T:
+    var max = default
+    for item in collection:
+        if max is None or item > max:
+            max = item
+    return max
+
+
+def min<T>(collection: &list<T>, default: int = None) -> T:
+    var min = default
+    for item in collection:
+        if min is None or item < min:
+            min = item
+    return min
+
+
+def pow<N, E>(number: N, exponent: E) -> N:
+    return number ** exponent
+
+
+def print(txt: &ToStr, file: int = 1, sep: &str ="\n"):
+    var s = str(txt)
+    write(file, s.arr.data, len(s))
+    write(file, sep.arr.data, len(sep))
+
+
+def reversed<T>(collection: &list<T>) -> iterator<T>:
+    # TODO: Move 'range' to 'for' loop and remove 'it' variable
+    var it = range(len(collection)-1, -1, -1)
+    for i in it:
+        yield collection[i]
+    raise Exception("end of iterator")
+
+
+def round<N>(num: N) -> N:
+    var floor = (num as int) as N
+    var diff = num - floor
+    if diff >= 0.5:
+        return floor + 1.0
+    else:
+        return floor
+
+
+def sorted<T>(collection: &list<T>, reverse: bool=False) -> list<T>:
+    var l = copy(collection)
+    var i: uint = 0
+    var temp: T
+    while i < len(collection):
+        var j: int = i + 1
+        while j < len(collection):
+            if (not reverse and l[i] > l[j]) or (reverse and l[i] < l[j]):
+                temp = l[i]
+                l[i] = l[j]
+                l[j] = temp
+            j += 1
+        i += 1
+    return l
+
+
+def sum<T>(collection: &list<T>, start :int = 0) -> T:
+    var total = start
+    for item in collection:
+        total += item
+    return total
+
+
+def zip<A, B>(a: &list<A>, b: &list<B>) -> iterator<tuple<A, B>>:
+    var iter_a, iter_b = iter(a), iter(b)
+    var item_a: A, item_b: B
+    while True:
+        try:
+            item_a = next(iter_a)
+            item_b = next(iter_b)
+        except Exception:
+            break
+        yield item_a, item_b
+    raise Exception("end of iterator")
+
+
+# classes
+
+class range:
+    start: int
+    stop: int
+    step: int
+    num: int
+
+    def __init__(self, start: int, stop: int, step: int = 1):
+        self.start = start
+        self.stop = stop
+        self.step = step
+        self.num = self.start - step
+
+    def __init__(self, stop: int):
+        self.start = 0
+        self.stop = stop
+        self.step = 1
+        self.num = self.start - self.step
+
+    def __iter__(self) -> &Self:
+        self.num = self.start - self.step
+        return self
+
+    def __next__(self) -> int:
+        self.num += self.step
+        if self.num != self.stop:
+            return self.num
+        raise Exception("end of iterator")

@@ -1,0 +1,11 @@
+def main():
+
+    print(abs(-123 as i8))
+    print(abs(-123 as i16))
+    print(abs(-123 as i32))
+    print(abs(-123 as i64))
+    print(abs(-123 as i128))
+    print(abs(-123 as int))
+    print(abs(-123 as f32))
+    print(abs(-123 as f64))
+    print(abs(-123 as float))

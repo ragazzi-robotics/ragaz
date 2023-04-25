@@ -1,0 +1,6 @@
+def main():
+    var a = "a"
+    var b = &a
+    if True:
+        var c = "c"
+        b = &c

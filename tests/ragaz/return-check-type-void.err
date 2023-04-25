@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In return-check-type-void.zz:
+
+    |
+  1 | def main() -> i32:
+    |               ^
+    |               function must return value of type 'i32'
+    |
+  2 |     return
+    |     ^
+    |     but no value was returned here
+
+    Hint:
+    - Do not define a return type for the function.
+@

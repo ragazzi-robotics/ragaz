@@ -1,0 +1,11 @@
+class Bar:
+    def __init__(self):
+        pass
+
+    def __getitem__(self, idx: int) -> int:
+        return 1
+
+
+def main():
+    var a = Bar()
+    a[0] = 2

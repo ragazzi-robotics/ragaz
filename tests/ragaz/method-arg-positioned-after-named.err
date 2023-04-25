@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In method-arg-positioned-after-named.zz:
+
+    |
+  7 |     foo(b=2, 1)
+    |              ^
+    |              non-named arguments must come before named arguments
+
+    Hint:
+    - Move this value to front of 'b'.
+@

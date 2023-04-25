@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In ref-out-of-scope.zz:
+
+    |
+  3 |     var b = &a
+    |         ^
+    |         object 'b' defined in outer scope
+    |
+  6 |         b = &c
+    |              ^
+    |              cannot reference object 'c' defined in inner scope
+
+    Hint:
+    - Consider move value 'c' to same scope or outer scope than 'b' (or the contrary).
+@

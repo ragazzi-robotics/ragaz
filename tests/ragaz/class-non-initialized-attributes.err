@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In class-non-initialized-attributes.zz:
+
+    |
+  6 |     def __init__(self, x: int, y: float):
+    |                 ^
+    |                 the following attributes were not initialized in this method: 'y', 'z'
+@

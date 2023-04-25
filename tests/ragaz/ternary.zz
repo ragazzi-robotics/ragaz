@@ -1,0 +1,17 @@
+def main():
+
+    # compare integers
+    print(str(1 if 0 else 2))
+    print(str(2 if 111 else 1))
+    print("true" if 111 else "false")
+    print("true" if 0 else "false")
+
+    # compare strings
+    print(str(1 if "a" else 0))
+    print(str(1 if "" else 0))
+    print(str(1 if not "" else 0))
+    print("" if "a" == "b" else "blah")
+    print("" if "aa" == "a" else "blah")
+    print("blah" if "aaa" == "aaa" else "")
+    print("blah" if "a" < "b" else "")
+    print("" if "b" < "a" else "blah")

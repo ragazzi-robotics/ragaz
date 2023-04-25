@@ -1,0 +1,16 @@
+# TODO:
+# Implement the bellow functions in Ragaz code. They still are C functions because we need to accelerate the process
+# of having a standard library and so to have a usable version of Ragaz. But as a proof of concept, all they should
+# be Ragaz functions.
+
+@extern_c
+def time(second: &int) -> int
+
+@extern_c
+def getenv(env_var: data<byte>) -> data<byte>
+
+@extern_c
+def srand(s: uint)
+
+@extern_c
+def rand() -> int

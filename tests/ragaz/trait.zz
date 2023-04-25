@@ -1,0 +1,37 @@
+class CalcInt:
+    def __init__(self):
+        pass
+
+    def add(self, a: int, b: int) -> int:
+        return a + b
+
+    def sub(self, a: int, b: int) -> int:
+        return a - b
+
+
+class CalcFloat:
+    def __init__(self):
+        pass
+
+    def add(self, a: float, b: float) -> float:
+        return a + b
+
+    def sub(self, a: float, b: float) -> float:
+        return a - b
+
+
+trait Calc<T>:
+    def add(self, a: T, b: T) -> T
+    def sub(self, a: T, b: T) -> T
+
+
+def main():
+    var calc_int = CalcInt()
+    var calc_int_2: Calc<int> = calc_int
+    print(calc_int_2.add(1, 2))
+    print(calc_int_2.sub(1, 2))
+
+    var calc_float = CalcFloat()
+    var calc_float_2: Calc<float> = calc_float
+    print(calc_float_2.add(3.0, 4.0))
+    print(calc_float_2.sub(3.0, 4.0))

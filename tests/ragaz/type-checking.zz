@@ -1,0 +1,78 @@
+class Bar:
+    i: int
+    def __init__(self, i: int):
+        self.i = i
+
+
+def main():
+
+    var x = 1
+    print(isinstance(x, int))
+    print(isinstance(x, float))
+    print(isinstance(x, (int)))
+    print(isinstance(x, (int, float)))
+    print(isinstance(x, (str, float)))
+
+    var y = Bar(1)
+    print(isinstance(y, Bar))
+    print(isinstance(y, int))
+
+    var a: i32 = 4.8
+    print(isinstance(a, i32))
+    print(a)
+
+    var b = 1
+    print(isinstance(b, int))
+    print(b)
+
+    var c = a + b
+    print(isinstance(c, i32))
+    print(c)
+
+    var d:f64 = 4.1
+    print(isinstance(d, f64))
+    print(d)
+
+    var e = [1, 2, 3, d]
+    print(isinstance(e[0], f64))
+    print(e[0])
+
+    var f: list<i16> = [b, 2, 3.7]
+    print(isinstance(f[0], i16))
+    print(f[0])
+
+    var g = e[0]
+    print(isinstance(g, f64))
+    print(g)
+
+    e[b] = 9
+    print(isinstance(e[b], f64))
+    print(e[b])
+
+    e[1] = 1.5
+    print(isinstance(e[1], f64))
+    print(e[1])
+
+    var h:f32 = 11
+    print(isinstance(h, f32))
+    print(h)
+
+    e[0] = f[0]
+    print(isinstance(e[0], f64))
+    print(e[0])
+
+    var i = b + h + d
+    print(isinstance(i, f64))
+    print(i)
+
+    var j = 1.5
+    print(isinstance(i, f64))
+    print(j)
+
+    var l = i + h
+    print(isinstance(l, f64))
+    print(l)
+
+    b = a
+    print(isinstance(b, int))
+    print(b)

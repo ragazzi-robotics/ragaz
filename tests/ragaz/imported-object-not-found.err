@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In imported-object-not-found.zz:
+
+    |
+  1 | from inner_module import X
+    |                          ^
+    |                          no object named 'X' was found
+
+    Hint:
+    - Check whether there is a typo in the name.
+    - Check if it was defined in the module.
+@

@@ -1,0 +1,530 @@
+; ModuleID = '/home/davidragazzi/Desktop/ragaz/ragaz/core/personality/personality.c'
+source_filename = "/home/davidragazzi/Desktop/ragaz/ragaz/core/personality/personality.c"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.lsda_header_info = type { i64, i64, i64, ptr, ptr, i8, i8 }
+%struct.RagazException = type { %struct._Unwind_Exception, i32, ptr, i64, [8 x i8] }
+%struct._Unwind_Exception = type { i64, ptr, i64, i64 }
+
+@.str = private unnamed_addr constant [41 x i8] c"negative filter value -- exception spec\0A\00", align 1, !dbg !0
+@.str.1 = private unnamed_addr constant [5 x i8] c"WTF\0A\00", align 1, !dbg !7
+
+; Function Attrs: noinline nounwind optnone sspstrong uwtable
+define dso_local i32 @__ragaz_personality(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) #0 !dbg !29 {
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %struct.lsda_header_info, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i64, align 8
+  %18 = alloca i64, align 8
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i8, align 1
+  %22 = alloca i32, align 4
+  %23 = alloca i64, align 8
+  %24 = alloca i64, align 8
+  %25 = alloca i64, align 8
+  %26 = alloca i64, align 8
+  %27 = alloca i64, align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i8, align 1
+  %30 = alloca i8, align 1
+  store i32 %0, ptr %7, align 4
+  call void @llvm.dbg.declare(metadata ptr %7, metadata !104, metadata !DIExpression()), !dbg !105
+  store i32 %1, ptr %8, align 4
+  call void @llvm.dbg.declare(metadata ptr %8, metadata !106, metadata !DIExpression()), !dbg !107
+  store i64 %2, ptr %9, align 8
+  call void @llvm.dbg.declare(metadata ptr %9, metadata !108, metadata !DIExpression()), !dbg !109
+  store ptr %3, ptr %10, align 8
+  call void @llvm.dbg.declare(metadata ptr %10, metadata !110, metadata !DIExpression()), !dbg !111
+  store ptr %4, ptr %11, align 8
+  call void @llvm.dbg.declare(metadata ptr %11, metadata !112, metadata !DIExpression()), !dbg !113
+  call void @llvm.dbg.declare(metadata ptr %12, metadata !114, metadata !DIExpression()), !dbg !115
+  call void @llvm.dbg.declare(metadata ptr %13, metadata !116, metadata !DIExpression()), !dbg !126
+  call void @llvm.dbg.declare(metadata ptr %14, metadata !127, metadata !DIExpression()), !dbg !128
+  call void @llvm.dbg.declare(metadata ptr %15, metadata !129, metadata !DIExpression()), !dbg !130
+  call void @llvm.dbg.declare(metadata ptr %16, metadata !131, metadata !DIExpression()), !dbg !132
+  call void @llvm.dbg.declare(metadata ptr %17, metadata !133, metadata !DIExpression()), !dbg !134
+  call void @llvm.dbg.declare(metadata ptr %18, metadata !135, metadata !DIExpression()), !dbg !136
+  call void @llvm.dbg.declare(metadata ptr %19, metadata !137, metadata !DIExpression()), !dbg !138
+  call void @llvm.dbg.declare(metadata ptr %20, metadata !139, metadata !DIExpression()), !dbg !140
+  store ptr null, ptr %20, align 8, !dbg !140
+  call void @llvm.dbg.declare(metadata ptr %21, metadata !141, metadata !DIExpression()), !dbg !143
+  call void @llvm.dbg.declare(metadata ptr %22, metadata !144, metadata !DIExpression()), !dbg !145
+  store i32 0, ptr %22, align 4, !dbg !145
+  %31 = load i32, ptr %7, align 4, !dbg !146
+  %32 = icmp ne i32 %31, 1, !dbg !148
+  br i1 %32, label %33, label %34, !dbg !149
+
+33:                                               ; preds = %5
+  store i32 3, ptr %6, align 4, !dbg !150
+  br label %245, !dbg !150
+
+34:                                               ; preds = %5
+  %35 = load i64, ptr %9, align 8, !dbg !151
+  %36 = icmp ne i64 %35, 27111979, !dbg !152
+  %37 = zext i1 %36 to i8, !dbg !153
+  store i8 %37, ptr %21, align 1, !dbg !153
+  %38 = load i32, ptr %8, align 4, !dbg !154
+  %39 = icmp eq i32 %38, 6, !dbg !156
+  br i1 %39, label %40, label %49, !dbg !157
+
+40:                                               ; preds = %34
+  %41 = load i8, ptr %21, align 1, !dbg !158
+  %42 = trunc i8 %41 to i1, !dbg !158
+  br i1 %42, label %49, label %43, !dbg !159
+
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %10, align 8, !dbg !160
+  call void @restore_caught_exception(ptr noundef %44, ptr noundef %19, ptr noundef %14, ptr noundef %17), !dbg !162
+  %45 = load i64, ptr %17, align 8, !dbg !163
+  %46 = icmp eq i64 %45, 0, !dbg !164
+  %47 = zext i1 %46 to i64, !dbg !163
+  %48 = select i1 %46, i32 1, i32 3, !dbg !163
+  store i32 %48, ptr %12, align 4, !dbg !165
+  br label %201, !dbg !166
+
+49:                                               ; preds = %40, %34
+  %50 = load ptr, ptr %11, align 8, !dbg !167
+  %51 = call i64 @_Unwind_GetLanguageSpecificData(ptr noundef %50), !dbg !168
+  %52 = inttoptr i64 %51 to ptr, !dbg !169
+  store ptr %52, ptr %14, align 8, !dbg !170
+  %53 = load ptr, ptr %14, align 8, !dbg !171
+  %54 = icmp ne ptr %53, null, !dbg !171
+  br i1 %54, label %56, label %55, !dbg !173
+
+55:                                               ; preds = %49
+  store i32 8, ptr %6, align 4, !dbg !174
+  br label %245, !dbg !174
+
+56:                                               ; preds = %49
+  %57 = load ptr, ptr %11, align 8, !dbg !175
+  %58 = load ptr, ptr %14, align 8, !dbg !176
+  %59 = call ptr @parse_lsda_header(ptr noundef %57, ptr noundef %58, ptr noundef %13), !dbg !177
+  store ptr %59, ptr %16, align 8, !dbg !178
+  %60 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 5, !dbg !179
+  %61 = load i8, ptr %60, align 8, !dbg !179
+  %62 = load ptr, ptr %11, align 8, !dbg !180
+  %63 = call i64 @base_of_encoded_value(i8 noundef zeroext %61, ptr noundef %62), !dbg !181
+  %64 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 2, !dbg !182
+  store i64 %63, ptr %64, align 8, !dbg !183
+  %65 = load ptr, ptr %11, align 8, !dbg !184
+  %66 = call i64 @_Unwind_GetIPInfo(ptr noundef %65, ptr noundef %22), !dbg !185
+  store i64 %66, ptr %18, align 8, !dbg !186
+  %67 = load i32, ptr %22, align 4, !dbg !187
+  %68 = icmp ne i32 %67, 0, !dbg !187
+  br i1 %68, label %72, label %69, !dbg !189
+
+69:                                               ; preds = %56
+  %70 = load i64, ptr %18, align 8, !dbg !190
+  %71 = add i64 %70, -1, !dbg !190
+  store i64 %71, ptr %18, align 8, !dbg !190
+  br label %72, !dbg !190
+
+72:                                               ; preds = %69, %56
+  store i64 0, ptr %17, align 8, !dbg !191
+  store ptr null, ptr %15, align 8, !dbg !192
+  store i32 0, ptr %19, align 4, !dbg !193
+  br label %73, !dbg !194
+
+73:                                               ; preds = %130, %72
+  %74 = load ptr, ptr %16, align 8, !dbg !195
+  %75 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 4, !dbg !196
+  %76 = load ptr, ptr %75, align 8, !dbg !196
+  %77 = icmp ult ptr %74, %76, !dbg !197
+  br i1 %77, label %78, label %131, !dbg !194
+
+78:                                               ; preds = %73
+  call void @llvm.dbg.declare(metadata ptr %23, metadata !198, metadata !DIExpression()), !dbg !200
+  call void @llvm.dbg.declare(metadata ptr %24, metadata !201, metadata !DIExpression()), !dbg !202
+  call void @llvm.dbg.declare(metadata ptr %25, metadata !203, metadata !DIExpression()), !dbg !204
+  call void @llvm.dbg.declare(metadata ptr %26, metadata !205, metadata !DIExpression()), !dbg !206
+  %79 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 6, !dbg !207
+  %80 = load i8, ptr %79, align 1, !dbg !207
+  %81 = load ptr, ptr %16, align 8, !dbg !208
+  %82 = call ptr @read_encoded_value(ptr noundef null, i8 noundef zeroext %80, ptr noundef %81, ptr noundef %23), !dbg !209
+  store ptr %82, ptr %16, align 8, !dbg !210
+  %83 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 6, !dbg !211
+  %84 = load i8, ptr %83, align 1, !dbg !211
+  %85 = load ptr, ptr %16, align 8, !dbg !212
+  %86 = call ptr @read_encoded_value(ptr noundef null, i8 noundef zeroext %84, ptr noundef %85, ptr noundef %24), !dbg !213
+  store ptr %86, ptr %16, align 8, !dbg !214
+  %87 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 6, !dbg !215
+  %88 = load i8, ptr %87, align 1, !dbg !215
+  %89 = load ptr, ptr %16, align 8, !dbg !216
+  %90 = call ptr @read_encoded_value(ptr noundef null, i8 noundef zeroext %88, ptr noundef %89, ptr noundef %25), !dbg !217
+  store ptr %90, ptr %16, align 8, !dbg !218
+  %91 = load ptr, ptr %16, align 8, !dbg !219
+  %92 = call ptr @read_uleb128(ptr noundef %91, ptr noundef %26), !dbg !220
+  store ptr %92, ptr %16, align 8, !dbg !221
+  %93 = load i64, ptr %18, align 8, !dbg !222
+  %94 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 0, !dbg !224
+  %95 = load i64, ptr %94, align 8, !dbg !224
+  %96 = load i64, ptr %23, align 8, !dbg !225
+  %97 = add i64 %95, %96, !dbg !226
+  %98 = icmp ult i64 %93, %97, !dbg !227
+  br i1 %98, label %99, label %102, !dbg !228
+
+99:                                               ; preds = %78
+  %100 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 4, !dbg !229
+  %101 = load ptr, ptr %100, align 8, !dbg !229
+  store ptr %101, ptr %16, align 8, !dbg !231
+  br label %130, !dbg !232
+
+102:                                              ; preds = %78
+  %103 = load i64, ptr %18, align 8, !dbg !233
+  %104 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 0, !dbg !235
+  %105 = load i64, ptr %104, align 8, !dbg !235
+  %106 = load i64, ptr %23, align 8, !dbg !236
+  %107 = add i64 %105, %106, !dbg !237
+  %108 = load i64, ptr %24, align 8, !dbg !238
+  %109 = add i64 %107, %108, !dbg !239
+  %110 = icmp ult i64 %103, %109, !dbg !240
+  br i1 %110, label %111, label %129, !dbg !241
+
+111:                                              ; preds = %102
+  %112 = load i64, ptr %25, align 8, !dbg !242
+  %113 = icmp ne i64 %112, 0, !dbg !242
+  br i1 %113, label %114, label %119, !dbg !245
+
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 1, !dbg !246
+  %116 = load i64, ptr %115, align 8, !dbg !246
+  %117 = load i64, ptr %25, align 8, !dbg !247
+  %118 = add i64 %116, %117, !dbg !248
+  store i64 %118, ptr %17, align 8, !dbg !249
+  br label %119, !dbg !250
+
+119:                                              ; preds = %114, %111
+  %120 = load i64, ptr %26, align 8, !dbg !251
+  %121 = icmp ne i64 %120, 0, !dbg !251
+  br i1 %121, label %122, label %128, !dbg !253
+
+122:                                              ; preds = %119
+  %123 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 4, !dbg !254
+  %124 = load ptr, ptr %123, align 8, !dbg !254
+  %125 = load i64, ptr %26, align 8, !dbg !255
+  %126 = getelementptr inbounds i8, ptr %124, i64 %125, !dbg !256
+  %127 = getelementptr inbounds i8, ptr %126, i64 -1, !dbg !257
+  store ptr %127, ptr %15, align 8, !dbg !258
+  br label %128, !dbg !259
+
+128:                                              ; preds = %122, %119
+  br label %132, !dbg !260
+
+129:                                              ; preds = %102
+  br label %130
+
+130:                                              ; preds = %129, %99
+  br label %73, !dbg !194, !llvm.loop !261
+
+131:                                              ; preds = %73
+  store i32 1, ptr %12, align 4, !dbg !264
+  br label %179, !dbg !265
+
+132:                                              ; preds = %128
+  call void @llvm.dbg.label(metadata !266), !dbg !267
+  %133 = load i64, ptr %17, align 8, !dbg !268
+  %134 = icmp eq i64 %133, 0, !dbg !270
+  br i1 %134, label %135, label %136, !dbg !271
+
+135:                                              ; preds = %132
+  store i32 0, ptr %12, align 4, !dbg !272
+  br label %178, !dbg !274
+
+136:                                              ; preds = %132
+  %137 = load ptr, ptr %15, align 8, !dbg !275
+  %138 = icmp eq ptr %137, null, !dbg !277
+  br i1 %138, label %139, label %140, !dbg !278
+
+139:                                              ; preds = %136
+  store i32 2, ptr %12, align 4, !dbg !279
+  br label %177, !dbg !281
+
+140:                                              ; preds = %136
+  call void @llvm.dbg.declare(metadata ptr %27, metadata !282, metadata !DIExpression()), !dbg !284
+  call void @llvm.dbg.declare(metadata ptr %28, metadata !285, metadata !DIExpression()), !dbg !286
+  call void @llvm.dbg.declare(metadata ptr %29, metadata !287, metadata !DIExpression()), !dbg !288
+  store i8 0, ptr %29, align 1, !dbg !288
+  call void @llvm.dbg.declare(metadata ptr %30, metadata !289, metadata !DIExpression()), !dbg !290
+  store i8 0, ptr %30, align 1, !dbg !290
+  br label %141, !dbg !291
+
+141:                                              ; preds = %140, %161
+  %142 = load ptr, ptr %15, align 8, !dbg !292
+  store ptr %142, ptr %16, align 8, !dbg !294
+  %143 = load ptr, ptr %16, align 8, !dbg !295
+  %144 = call ptr @read_sleb128(ptr noundef %143, ptr noundef %27), !dbg !296
+  store ptr %144, ptr %16, align 8, !dbg !297
+  %145 = load ptr, ptr %16, align 8, !dbg !298
+  %146 = call ptr @read_sleb128(ptr noundef %145, ptr noundef %28), !dbg !299
+  %147 = load i64, ptr %27, align 8, !dbg !300
+  %148 = icmp eq i64 %147, 0, !dbg !302
+  br i1 %148, label %149, label %150, !dbg !303
+
+149:                                              ; preds = %141
+  store i8 1, ptr %29, align 1, !dbg !304
+  br label %157, !dbg !306
+
+150:                                              ; preds = %141
+  %151 = load i64, ptr %27, align 8, !dbg !307
+  %152 = icmp sgt i64 %151, 0, !dbg !309
+  br i1 %152, label %153, label %154, !dbg !310
+
+153:                                              ; preds = %150
+  store i8 1, ptr %30, align 1, !dbg !311
+  br label %165, !dbg !313
+
+154:                                              ; preds = %150
+  %155 = call i32 (ptr, ...) @printf(ptr noundef @.str), !dbg !314
+  br label %156
+
+156:                                              ; preds = %154
+  br label %157
+
+157:                                              ; preds = %156, %149
+  %158 = load i64, ptr %28, align 8, !dbg !316
+  %159 = icmp eq i64 %158, 0, !dbg !318
+  br i1 %159, label %160, label %161, !dbg !319
+
+160:                                              ; preds = %157
+  br label %165, !dbg !320
+
+161:                                              ; preds = %157
+  %162 = load ptr, ptr %16, align 8, !dbg !321
+  %163 = load i64, ptr %28, align 8, !dbg !322
+  %164 = getelementptr inbounds i8, ptr %162, i64 %163, !dbg !323
+  store ptr %164, ptr %15, align 8, !dbg !324
+  br label %141, !dbg !291, !llvm.loop !325
+
+165:                                              ; preds = %160, %153
+  %166 = load i8, ptr %30, align 1, !dbg !327
+  %167 = trunc i8 %166 to i1, !dbg !327
+  br i1 %167, label %168, label %171, !dbg !329
+
+168:                                              ; preds = %165
+  %169 = load i64, ptr %27, align 8, !dbg !330
+  %170 = trunc i64 %169 to i32, !dbg !330
+  store i32 %170, ptr %19, align 4, !dbg !332
+  store i32 3, ptr %12, align 4, !dbg !333
+  br label %176, !dbg !334
+
+171:                                              ; preds = %165
+  %172 = load i8, ptr %29, align 1, !dbg !335
+  %173 = trunc i8 %172 to i1, !dbg !335
+  %174 = zext i1 %173 to i64, !dbg !335
+  %175 = select i1 %173, i32 2, i32 0, !dbg !335
+  store i32 %175, ptr %12, align 4, !dbg !337
+  br label %176
+
+176:                                              ; preds = %171, %168
+  br label %177
+
+177:                                              ; preds = %176, %139
+  br label %178
+
+178:                                              ; preds = %177, %135
+  br label %179, !dbg !338
+
+179:                                              ; preds = %178, %131
+  call void @llvm.dbg.label(metadata !339), !dbg !340
+  %180 = load i32, ptr %12, align 4, !dbg !341
+  %181 = icmp eq i32 %180, 0, !dbg !343
+  br i1 %181, label %182, label %183, !dbg !344
+
+182:                                              ; preds = %179
+  store i32 8, ptr %6, align 4, !dbg !345
+  br label %245, !dbg !345
+
+183:                                              ; preds = %179
+  %184 = load i32, ptr %8, align 4, !dbg !346
+  %185 = and i32 %184, 1, !dbg !348
+  %186 = icmp ne i32 %185, 0, !dbg !348
+  br i1 %186, label %187, label %200, !dbg !349
+
+187:                                              ; preds = %183
+  %188 = load i32, ptr %12, align 4, !dbg !350
+  %189 = icmp eq i32 %188, 2, !dbg !353
+  br i1 %189, label %190, label %191, !dbg !354
+
+190:                                              ; preds = %187
+  store i32 8, ptr %6, align 4, !dbg !355
+  br label %245, !dbg !355
+
+191:                                              ; preds = %187
+  %192 = load i8, ptr %21, align 1, !dbg !356
+  %193 = trunc i8 %192 to i1, !dbg !356
+  br i1 %193, label %199, label %194, !dbg !358
+
+194:                                              ; preds = %191
+  %195 = load ptr, ptr %10, align 8, !dbg !359
+  %196 = load i32, ptr %19, align 4, !dbg !361
+  %197 = load ptr, ptr %14, align 8, !dbg !362
+  %198 = load i64, ptr %17, align 8, !dbg !363
+  call void @save_caught_exception(ptr noundef %195, i32 noundef %196, ptr noundef %197, i64 noundef %198), !dbg !364
+  br label %199, !dbg !365
+
+199:                                              ; preds = %194, %191
+  store i32 6, ptr %6, align 4, !dbg !366
+  br label %245, !dbg !366
+
+200:                                              ; preds = %183
+  br label %201, !dbg !367
+
+201:                                              ; preds = %200, %43
+  call void @llvm.dbg.label(metadata !368), !dbg !369
+  %202 = load i32, ptr %8, align 4, !dbg !370
+  %203 = and i32 %202, 8, !dbg !372
+  %204 = icmp ne i32 %203, 0, !dbg !372
+  br i1 %204, label %208, label %205, !dbg !373
+
+205:                                              ; preds = %201
+  %206 = load i8, ptr %21, align 1, !dbg !374
+  %207 = trunc i8 %206 to i1, !dbg !374
+  br i1 %207, label %208, label %219, !dbg !375
+
+208:                                              ; preds = %205, %201
+  %209 = load i32, ptr %12, align 4, !dbg !376
+  %210 = icmp eq i32 %209, 1, !dbg !379
+  br i1 %210, label %211, label %212, !dbg !380
+
+211:                                              ; preds = %208
+  call void @abort() #4, !dbg !381
+  unreachable, !dbg !381
+
+212:                                              ; preds = %208
+  %213 = load i32, ptr %19, align 4, !dbg !382
+  %214 = icmp slt i32 %213, 0, !dbg !384
+  br i1 %214, label %215, label %217, !dbg !385
+
+215:                                              ; preds = %212
+  %216 = call i32 (ptr, ...) @printf(ptr noundef @.str.1), !dbg !386
+  br label %217, !dbg !388
+
+217:                                              ; preds = %215, %212
+  br label %218
+
+218:                                              ; preds = %217
+  br label %236, !dbg !389
+
+219:                                              ; preds = %205
+  %220 = load i32, ptr %12, align 4, !dbg !390
+  %221 = icmp eq i32 %220, 1, !dbg !393
+  br i1 %221, label %222, label %223, !dbg !394
+
+222:                                              ; preds = %219
+  call void @abort() #4, !dbg !395
+  unreachable, !dbg !395
+
+223:                                              ; preds = %219
+  %224 = load i32, ptr %19, align 4, !dbg !396
+  %225 = icmp slt i32 %224, 0, !dbg !398
+  br i1 %225, label %226, label %235, !dbg !399
+
+226:                                              ; preds = %223
+  %227 = load ptr, ptr %11, align 8, !dbg !400
+  %228 = load ptr, ptr %14, align 8, !dbg !402
+  %229 = call ptr @parse_lsda_header(ptr noundef %227, ptr noundef %228, ptr noundef %13), !dbg !403
+  %230 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 5, !dbg !404
+  %231 = load i8, ptr %230, align 8, !dbg !404
+  %232 = load ptr, ptr %11, align 8, !dbg !405
+  %233 = call i64 @base_of_encoded_value(i8 noundef zeroext %231, ptr noundef %232), !dbg !406
+  %234 = getelementptr inbounds %struct.lsda_header_info, ptr %13, i32 0, i32 2, !dbg !407
+  store i64 %233, ptr %234, align 8, !dbg !408
+  br label %235, !dbg !409
+
+235:                                              ; preds = %226, %223
+  br label %236
+
+236:                                              ; preds = %235, %218
+  %237 = load ptr, ptr %11, align 8, !dbg !410
+  %238 = load ptr, ptr %10, align 8, !dbg !411
+  %239 = ptrtoint ptr %238 to i64, !dbg !412
+  call void @_Unwind_SetGR(ptr noundef %237, i32 noundef 0, i64 noundef %239), !dbg !413
+  %240 = load ptr, ptr %11, align 8, !dbg !414
+  %241 = load i32, ptr %19, align 4, !dbg !415
+  %242 = sext i32 %241 to i64, !dbg !415
+  call void @_Unwind_SetGR(ptr noundef %240, i32 noundef 1, i64 noundef %242), !dbg !416
+  %243 = load ptr, ptr %11, align 8, !dbg !417
+  %244 = load i64, ptr %17, align 8, !dbg !418
+  call void @_Unwind_SetIP(ptr noundef %243, i64 noundef %244), !dbg !419
+  store i32 7, ptr %6, align 4, !dbg !420
+  br label %245, !dbg !420
+
+245:                                              ; preds = %236, %199, %190, %182, %55, %33
+  %246 = load i32, ptr %6, align 4, !dbg !421
+  ret i32 %246, !dbg !421
+}
+
+; Function Attrs: nocallback nofree nosync nounwind readnone speculatable willreturn
+declare void @llvm.dbg.declare(metadata, metadata, metadata) #1
+
+; Function Attrs: noinline nounwind optnone sspstrong uwtable
+define internal void @restore_caught_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 !dbg !422 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  call void @llvm.dbg.declare(metadata ptr %5, metadata !427, metadata !DIExpression()), !dbg !428
+  store ptr %1, ptr %6, align 8
+  call void @llvm.dbg.declare(metadata ptr %6, metadata !429, metadata !DIExpression()), !dbg !430
+  store ptr %2, ptr %7, align 8
+  call void @llvm.dbg.declare(metadata ptr %7, metadata !431, metadata !DIExpression()), !dbg !432
+  store ptr %3, ptr %8, align 8
+  call void @llvm.dbg.declare(metadata ptr %8, metadata !433, metadata !DIExpression()), !dbg !434
+  call void @llvm.dbg.declare(metadata ptr %9, metadata !435, metadata !DIExpression()), !dbg !436
+  %10 = load ptr, ptr %5, align 8, !dbg !437
+  store ptr %10, ptr %9, align 8, !dbg !436
+  %11 = load ptr, ptr %9, align 8, !dbg !438
+  %12 = getelementptr inbounds %struct.RagazException, ptr %11, i32 0, i32 1, !dbg !439
+  %13 = load i32, ptr %12, align 16, !dbg !439
+  %14 = load ptr, ptr %6, align 8, !dbg !440
+  store i32 %13, ptr %14, align 4, !dbg !441
+  %15 = load ptr, ptr %9, align 8, !dbg !442
+  %16 = getelementptr inbounds %struct.RagazException, ptr %15, i32 0, i32 2, !dbg !443
+  %17 = load ptr, ptr %16, align 8, !dbg !443
+  %18 = load ptr, ptr %7, align 8, !dbg !444
+  store ptr %17, ptr %18, align 8, !dbg !445
+  %19 = load ptr, ptr %9, align 8, !dbg !446
+  %20 = getelementptr inbounds %struct.RagazException, ptr %19, i32 0, i32 3, !dbg !447
+  %21 = load i64, ptr %20, align 16, !dbg !447
+  %22 = load ptr, ptr %8, align 8, !dbg !448
+  store i64 %21, ptr %22, align 8, !dbg !449
+  ret void, !dbg !450
+}
+
+declare i64 @_Unwind_GetLanguageSpecificData(ptr noundef) #2
+
+; Function Attrs: noinline nounwind optnone sspstrong uwtable
+define internal ptr @parse_lsda_header(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 !dbg !451 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8
+  call void @llvm.dbg.declare(metadata ptr %4, metadata !455, metadata !DIExpression()), !dbg !456
+  store ptr %1, ptr %5, align 8
+  call void @llvm.dbg.declare(metadata ptr %5, metadata !457, metadata !DIExpression()), !dbg !458
+  store ptr %2, ptr %6, align 8
+  call void @llvm.dbg.declare(metadata ptr %6, metadata !459, metadata !DIExpression()), !dbg !460
+  call void @llvm.dbg.declare(metadata ptr %7, metadata !461, metadata !DIExpression()), !dbg !462
+  call void @llvm.dbg.declare(metadata ptr %8, metadata !463, metadata !DIExpression()), !dbg !464
+  %9 = load ptr, ptr %4, align 8, !dbg !465
+  %10 = icmp ne ptr %9, null, !dbg !465
+  br i1 %10, label %11, label %14, !dbg !465
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %4, align 8, !dbg !466
+  %13 = call i64 @_Unwind_GetRegionStart(ptr noundef %12), !dbg !467
+  br l

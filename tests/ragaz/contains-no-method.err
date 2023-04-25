@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In contains-no-method.zz:
+
+    |
+  3 |     print(1 in a)
+    |                ^
+    |                'anyint' does not have a method '__contains__'
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

@@ -3,8 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
+# Build-related extensions
 *.so
+*.ll
+*.test
 
 # Distribution / packaging
 .Python
@@ -54,6 +56,9 @@ coverage.xml
 # Translations
 *.mo
 *.pot
+
+# Pycharm
+.idea
 
 # Django stuff:
 *.log

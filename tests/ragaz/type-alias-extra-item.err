@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In type-alias-extra-item.zz:
+
+    |
+  1 | int_size, float_size, byte_size = int, float
+    |                       ^
+    |                       extra item found in assignment
+@

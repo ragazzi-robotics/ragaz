@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In list-empty.zz:
+
+    |
+  2 |     var a = []
+    |             ^
+    |             no type was specified for the collection
+
+    Hint:
+    - Declare the collection using the ': list<sometype>' syntax.
+@

@@ -1,0 +1,28 @@
+class Bar:
+    value: int
+
+    def __init__(self, value: int):
+        self.value = value
+
+    def __str__(self) -> str:
+        return "Bar(" + str(self.value) + ")"
+
+    def __repr__(self) -> str:
+        return str(self)
+
+    def __copy__(self) -> Self:
+        return Bar(self.value)
+
+
+def main():
+
+    var a: list<tuple<int, float, byte>> = [(0, 1, 'a'), (2, 3, 'b')]
+    print(isinstance(a, list<tuple<int, float, byte>>))
+
+    var b: tuple<list<tuple<int, float, byte>>, tuple<list<str>, tuple<byte, list<Bar>>>> = ([(0, 1.0, 'a')], (["abc", "def"], ('b', [Bar(1), Bar(2)])))
+    print(isinstance(b, tuple<list<tuple<int, float, byte>>, tuple<list<str>, tuple<byte, list<Bar>>>>))
+
+    var a = [(1, "x", Bar(1)), (2, "y", Bar(2))]
+    var b = &a
+    var c, d, e = &b[1]
+    print(e)

@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In tuple-wrong-idx.zz:
+
+    |
+  4 |     print(a[x])
+    |             ^
+    |             element index must be a literal integer less or equal to '2'
+@

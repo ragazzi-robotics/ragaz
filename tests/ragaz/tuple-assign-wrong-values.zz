@@ -1,0 +1,6 @@
+def foo() -> tuple<int, float>:
+    return 1, 2.0
+
+
+def main():
+    var a, b, c = &foo()

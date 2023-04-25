@@ -1,0 +1,2 @@
+var stdout: int = 1
+var stderr: int = 2

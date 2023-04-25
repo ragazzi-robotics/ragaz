@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In call-no-return.zz:
+
+    |
+  6 |     var a = 1, foo()
+    |                   ^
+    |                   function returns nothing
+@

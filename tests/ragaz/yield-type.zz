@@ -1,0 +1,9 @@
+def foo() -> iterator<bool>:
+    yield 0
+    yield 1
+    yield 2
+    raise Exception("end of iterator")
+
+
+def main():
+    pass

@@ -1,0 +1,1 @@
+from inner_module import X

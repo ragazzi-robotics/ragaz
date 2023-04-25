@@ -1,0 +1,14 @@
+@
+ERROR
+=====
+
+    In class-no-init.zz:
+
+    |
+  6 |     print(Bar())
+    |              ^
+    |              'Bar' does not have a method '__init__'
+
+    Hint:
+    - Check whether there is a typo in the name.
+@

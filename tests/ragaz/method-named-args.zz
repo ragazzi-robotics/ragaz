@@ -1,0 +1,9 @@
+def foo(a: uint, b: uint):
+    print(a)
+    print(b)
+
+
+def main():
+    foo(b=2, a=1)
+    foo(3, b=4)
+    foo(5, 6)

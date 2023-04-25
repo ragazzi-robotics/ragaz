@@ -1,0 +1,13 @@
+def foo():
+    raise Exception("blah")
+
+
+def main():
+    try:
+        foo()
+        try:
+            foo()
+        except Exception:
+            pass
+    except Exception:
+        print("CAUGHT")

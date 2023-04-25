@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In owner-after-move-symbol-to-tuple.zz:
+
+    |
+  7 |     var b = (a, "y")
+    |              ^
+    |              value moved here
+    |
+  9 |     print(a)
+    |           ^
+    |           but used here after move
+
+    Hint:
+    - If you don't intend move it, consider pass a reference to value using '&' operator.
+@

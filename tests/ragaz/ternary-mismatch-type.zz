@@ -1,0 +1,3 @@
+def main():
+    var b = True
+    var a = 1 if b else "a"

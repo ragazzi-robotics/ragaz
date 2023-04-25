@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In type-not-found.zz:
+
+    |
+  1 | def foo(x: &Bar):
+    |             ^
+    |             type 'Bar' was not found
+
+    Hint:
+    - Check whether there is a typo in the name.
+    - Have you forgotten to define it or import it?
+@

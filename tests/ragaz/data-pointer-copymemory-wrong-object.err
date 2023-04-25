@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In data-pointer-copymemory-wrong-object.zz:
+
+    |
+  2 |     copymemory(1, 2, 3)
+    |                ^
+    |                object type must be 'data<T>' to perform this operation ('anyint' not allowed)
+@

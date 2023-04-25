@@ -1,0 +1,11 @@
+def main():
+
+    """
+    This is an example of
+    multiline comment
+    """
+
+    print("""blah""")
+    print("blah")
+    print("bl" + "ah")
+    print("blah".__copy__())

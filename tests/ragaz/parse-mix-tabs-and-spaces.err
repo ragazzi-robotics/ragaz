@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In parse-mix-tabs-and-spaces.zz:
+
+    |
+  3 |     print(a)
+    | ^
+    | mixing tabs and spaces is not allowed for indentation
+@

@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In trait-no-method.zz:
+
+    |
+ 11 |     def get_vendor(self) -> str
+    |                   ^
+    |                   no method named 'get_vendor' defined in 'Vehicle' was found in 'Car'
+
+    Hint:
+    - Check whether there is a typo in the name.
+    - Have you forgotten to define it?
+@

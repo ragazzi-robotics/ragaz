@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In function-no-return.zz:
+
+    |
+  1 | def main() -> i32:
+    |               ^
+    |               function must return value of type 'i32' but no value was returned
+
+    Hint:
+    - Return some value ('i32') using 'return' keyword.
+    - Do not define a return type for the function.
+@

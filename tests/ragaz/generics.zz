@@ -1,0 +1,57 @@
+
+def foo<T, T2>(a: T, b: T2, c: bool):
+    print(a)
+    print(b)
+    print(c)
+
+
+class Bar:
+
+    def __init__(self):
+        pass
+
+    def foo<T>(self, a: T):
+        print(a)
+
+    def foo<T, T2>(self, a: T, b: T2) -> iterator<T, T2>:
+        yield a, b
+
+
+class GenericBar<T, T2>:
+    a: T
+    b: T2
+    c: bool
+
+    def __init__(self, a: T, b: T2, c: bool):
+        self.a = a
+        self.b = b
+        self.c = c
+        print(self.a)
+        print(self.b)
+        print(self.c)
+
+    def foo(self, a: T):
+        print(a)
+
+    def foo2<T3>(self, a: T3, b: T):
+        print(a)
+        print(b)
+
+
+def main():
+    foo(1, 1.5, True)
+    foo.<float, int, bool>(1, 1.5, True)
+
+    var a = Bar()
+    a.foo(2)
+    a.foo(2.5)
+    var it = a.foo(2, 2.5)
+    print(next(it))
+
+    var a = GenericBar(3, 3.5, False)
+    a.foo(4)
+    a.foo2(4.5, 5)
+
+    var a = GenericBar.<float, int, bool>(3, 3.5, True)
+    a.foo(5)
+    a.foo2.<int>(5.5, 6)

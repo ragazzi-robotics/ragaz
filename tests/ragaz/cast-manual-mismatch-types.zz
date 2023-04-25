@@ -1,0 +1,7 @@
+# test: {"no_auto_cast": ""}
+
+
+def main():
+    var x: f32 = 1.0
+    var y: f32 = 2.0
+    var z: f64 = x + y

@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In list-wrong-num-elements.zz:
+
+    |
+  2 |     var x = [0] * (1.0 as float)
+    |                        ^
+    |                        the number of elements must be a literal integer
+@

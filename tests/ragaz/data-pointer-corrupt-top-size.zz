@@ -1,0 +1,4 @@
+def main():
+    var x = array.<float>(3)
+    x.data[3] = 123
+    print(x.data[3])  # Raise an error because index is out of range allocated to variable

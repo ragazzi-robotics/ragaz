@@ -1,0 +1,36 @@
+class Bar:
+    s: str
+    def __init__(self, s: str):
+        self.s = s
+
+
+def main():
+    var a = "abc"
+    var b = &a
+    var c = &b
+    var d = *c
+    var e = *d
+    print(e)
+
+    var a = Bar("def")
+    var b = &a
+    var c = &b
+    print(c.s)
+
+    var a = ["a", "b", "c"]
+    var b = &a[1]
+    var c = &b
+    print(c)
+
+    var a = ("d", "e", "f")
+    var b = &a[1]
+    var c = &b
+    print(c)
+
+    var a1 = 1
+    var b1 = &a1
+    var c1 = &b1
+    var a2 = 2
+    var b2 = &a2
+    var c2 = &b2
+    print(a1 + b1)

@@ -1,0 +1,19 @@
+@
+ERROR
+=====
+
+    In owner-reassign-lost-reference.zz:
+
+    |
+  4 |     var c = &b
+    |             ^
+    |             when an object is referenced
+    |
+  5 |     a = "cde"
+    |     ^
+    |     but new assignment to it happens
+    |
+  6 |     print(c)
+    |           ^
+    |           the reference cannot be used later
+@

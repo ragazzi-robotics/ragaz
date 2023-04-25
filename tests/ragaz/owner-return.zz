@@ -1,0 +1,7 @@
+def foo() -> str:
+    return "blah"
+
+
+def main():
+    print(foo())
+    return

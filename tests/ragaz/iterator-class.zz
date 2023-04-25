@@ -1,0 +1,25 @@
+class Bar:
+    start: int
+    stop: int
+    num: int
+
+    def __init__(self, start: int, stop: int):
+        self.start = start
+        self.stop = stop
+        self.num = self.start - 1
+
+    def __iter__(self) -> &Self:
+        self.num = self.start - 1
+        return self
+
+    def __next__(self) -> int:
+        if self.num >= self.stop - 1:
+            raise Exception("end of iterator")
+        self.num += 1
+        return self.num
+
+
+def main():
+
+    for i in Bar(0, 3):
+        print(i)

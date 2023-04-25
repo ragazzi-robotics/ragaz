@@ -1,0 +1,11 @@
+def main():
+
+    var a = array.<float>(2)
+    a[0] = 1
+    a[1] = 2
+
+    a.resize(4)
+    a[3] = 3  # We cant' put this line before 'resize' because index is out of range
+    print(a[0])
+    print(a[1])
+    print(a[3])

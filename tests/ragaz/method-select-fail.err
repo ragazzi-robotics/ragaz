@@ -1,0 +1,17 @@
+@
+ERROR
+=====
+
+    In method-select-fail.zz:
+
+    |
+ 10 |     var a = Bar("test")
+    |                ^
+    |                no matching method found for the call's arguments
+
+    Hint:
+    - Methods tried for '(str)' arguments:
+        __init__(int)
+        __init__(float)
+
+@

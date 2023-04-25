@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In data-pointer-offset-wrong-type.zz:
+
+    |
+  3 |     print(a[1])
+    |            ^
+    |            object is not subscriptable
+
+    Hint:
+    - Are you sure that this object is a collection (like list, tuple, etc.)?
+    - Implement a magic method '__getitem__' in 'anyint'.
+@

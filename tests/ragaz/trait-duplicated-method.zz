@@ -1,0 +1,8 @@
+trait Calc:
+    def add(self, a: int, b: int) -> int
+    def sub(self, a: int, b: int) -> int
+    def add(self, a: float, b: float) -> float
+
+
+def main():
+    pass

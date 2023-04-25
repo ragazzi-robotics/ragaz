@@ -1,0 +1,29 @@
+class Bar:
+
+    def __init__(self):
+        pass
+
+    def foo<T>(self, start: T, stop: T) -> iterator<T>:
+        var i = start
+        while i < stop:
+            yield i
+            i += 1
+        raise Exception("end of iterator")
+
+
+def foo<T>(start: T, stop: T) -> iterator<T>:
+    var i = start
+    while i < stop:
+        yield i
+        i += 1
+    raise Exception("end of iterator")
+
+
+def main():
+
+    var a = Bar()
+    for i in a.foo(0.0, 3.0):
+        print(i)
+
+    for i in foo(0, 3):
+        print(i)

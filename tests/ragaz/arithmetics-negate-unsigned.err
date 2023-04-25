@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In arithmetics-negate-unsigned.zz:
+
+    |
+  2 |     var a: u32 = -1
+    |                  ^
+    |                  cannot use negate operation with unsigned numbers
+@

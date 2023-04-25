@@ -1,0 +1,150 @@
+def Bar.__init__(self [&Bar:E], v$0 [uint:E], msg$1 [$str:E]) -> void:
+   0: # entry
+ {00} self [&Bar:E] . value [uint] = v$0 [uint:E]
+ {01} self [&Bar:E] . msg [str] = msg$1 [$str:E]
+ {02} Return
+
+def main() -> void:
+   0: # entry
+ {00} Pass
+ {01} Return
+
+def get_nullable(i$0 [int]) -> $Bar:
+   0: # entry
+ {00} hidden$2 [bool] = GreaterThan i$0 [int] 2 [int]
+ {01} CondBranch hidden$2 [bool] ? 1 : 2
+   1: # ternary-left
+ {00} hidden$4 [$str:E] = 'one' [$str:E]
+ {01} hidden$3 [$Bar:E] = Bar(Init $Bar, 1 [uint], hidden$4 [$str:E]) [$Bar]
+ {02} Branch 3
+   2: # ternary-right
+ {00} Branch 3
+   3: # ternary-exit
+ {00} hidden$1 [$Bar:E] = Phi 1:hidden$3 [$Bar:E], 2:NoneVal [$Bar]
+ {01} Return hidden$1 [$Bar:E]
+
+def cast(a$0 [byte]) -> void:
+   0: # entry
+ {00} Alloca p$1 [i8]
+ {01} p$1 [i8] = As a$0 [byte] i8
+ {02} Return
+
+def nullable_check() -> void:
+   0: # entry
+ {00} Alloca obj$0 [$Bar]
+ {01} obj$0 [$Bar] = get_nullable(1 [int]) [$Bar]
+ {02} hidden$1 [bool] = Is obj$0 [$Bar] NoneVal [anytype]
+ {03} CondBranch hidden$1 [bool] ? 1 : 2
+   1: # if-suite
+ {00} hidden$2 [str] = 'no value' [str]
+ {01} print(hidden$2 [str], 1 [int], '\n' [str]) [void]
+ {02} Del hidden$2 [str]
+ {03} Branch 3
+   2: # if-suite
+ {00} print(False [bool], 1 [int], '\n' [str]) [void]
+ {01} Branch 3
+   3: # if-exit
+ {00} obj$0 [$Bar] = get_nullable(3 [int]) [$Bar]
+ {01} hidden$3 [bool] = Is obj$0 [$Bar] NoneVal [anytype]
+ {02} CondBranch hidden$3 [bool] ? 4 : 5
+   4: # if-suite
+ {00} hidden$4 [str] = 'no value' [str]
+ {01} print(hidden$4 [str], 1 [int], '\n' [str]) [void]
+ {02} Del hidden$4 [str]
+ {03} Branch 6
+   5: # if-suite
+ {00} print(obj$0 [$Bar] . value [uint], 1 [int], '\n' [str]) [void]
+ {01} Branch 6
+   6: # if-exit
+ {00} Del obj$0 [$Bar]
+ {01} Raise Exception(Init $Exception, 'fail!' [$str:E]) [$Exception]
+
+def math() -> void:
+   0: # entry
+ {00} hidden$1 [int] = Add 3 [int] 4 [int]
+ {01} hidden$3 [int] = Mul 5 [int] 6 [int]
+ {02} hidden$2 [int] = Div hidden$3 [int] 7 [int]
+ {03} hidden$0 [int] = Sub hidden$1 [int] hidden$2 [int]
+ {04} print(hidden$0 [int], 1 [int], '\n' [str]) [void]
+ {05} print(0.1 [float], 1 [int], '\n' [str]) [void]
+ {06} hidden$4 [bool] = LowerThan 6 [int] 4 [int]
+ {07} print(hidden$4 [bool], 1 [int], '\n' [str]) [void]
+ {08} hidden$5 [bool] = LowerEqual 6 [int] 4 [int]
+ {09} print(hidden$5 [bool], 1 [int], '\n' [str]) [void]
+ {10} hidden$6 [bool] = GreaterThan 5 [int] 3 [int]
+ {11} print(hidden$6 [bool], 1 [int], '\n' [str]) [void]
+ {12} hidden$7 [bool] = GreaterEqual 5 [int] 5 [int]
+ {13} print(hidden$7 [bool], 1 [int], '\n' [str]) [void]
+ {14} hidden$8 [int] = Mod 4 [int] 3 [int]
+ {15} print(hidden$8 [int], 1 [int], '\n' [str]) [void]
+ {16} nullable_check() [void] => 5, 2
+   2: # landing-pad
+ {00} LandingPad: $10 {Exception: 3}
+   3: # catch
+ {00} hidden$11 [str] = 'caught' [str]
+ {01} print(hidden$11 [str], 1 [int], '\n' [str]) [void]
+ {02} Del hidden$11 [str]
+ {03} Branch 5
+   4: # caught-no-match
+ {00} Resume: $10
+   5: # try-exit
+ {00} Return
+
+def binary() -> void:
+   0: # entry
+ {00} hidden$1 [int] = BwAnd 3 [int] 1 [int]
+ {01} print(hidden$1 [int], 1 [int], '\n' [str]) [void]
+ {02} hidden$2 [int] = BwOr 2 [int] 6 [int]
+ {03} print(hidden$2 [int], 1 [int], '\n' [str]) [void]
+ {04} hidden$3 [int] = BwXor 3 [int] 2 [int]
+ {05} print(hidden$3 [int], 1 [int], '\n' [str]) [void]
+ {06} hidden$6 [str] = '' [str]
+ {07} hidden$7 [str] = 'b' [str]
+ {08} hidden$5 [str] = And hidden$6 [str] hidden$7 [str]
+ {09} hidden$8 [str] = 'c' [str]
+ {10} hidden$4 [str] = Or hidden$5 [str] hidden$8 [str]
+ {11} print(hidden$4 [str], 1 [int], '\n' [str]) [void]
+ {12} hidden$10 [str] = 'a' [str]
+ {13} hidden$11 [str] = 'b' [str]
+ {14} hidden$9 [bool] = NotEqual hidden$10 [str] hidden$11 [str]
+ {15} print(hidden$9 [bool], 1 [int], '\n' [str]) [void]
+ {16} hidden$13 [str] = 'c' [str]
+ {17} hidden$14 [str] = 'c' [str]
+ {18} hidden$12 [bool] = Equal hidden$13 [str] hidden$14 [str]
+ {19} print(hidden$12 [bool], 1 [int], '\n' [str]) [void]
+ {20} hidden$16 [str] = '' [str]
+ {21} hidden$15 [bool] = Not hidden$16 [str]
+ {22} print(hidden$15 [bool], 1 [int], '\n' [str]) [void]
+ {23} Alloca a$0 [int]
+ {24} a$0 [int] = 1 [int]
+ {25} hidden$17 [bool] = Equal a$0 [int] 0 [int]
+ {26} CondBranch hidden$17 [bool] ? 1 : 2
+   1: # if-suite
+ {00} Pass
+ {01} Branch 5
+   2: # if-cond
+ {00} hidden$18 [bool] = LowerThan a$0 [int] 1 [int]
+ {01} CondBranch hidden$18 [bool] ? 3 : 4
+   3: # if-suite
+ {00} Pass
+ {01} Branch 5
+   4: # if-suite
+ {00} Pass
+ {01} Branch 5
+   5: # if-exit
+ {00} Del hidden$6 [str]
+ {01} Del hidden$7 [str]
+ {02} Del hidden$5 [str]
+ {03} Del hidden$8 [str]
+ {04} Del hidden$4 [str]
+ {05} Del hidden$10 [str]
+ {06} Del hidden$11 [str]
+ {07} Del hidden$13 [str]
+ {08} Del hidden$14 [str]
+ {09} Del hidden$16 [str]
+ {10} Return
+
+def raises() -> void:
+   0: # entry
+ {00} Raise Exception(Init $Exception, 'foo' [$str:E]) [$Exception]
+

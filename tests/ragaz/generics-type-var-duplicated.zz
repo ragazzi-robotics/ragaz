@@ -1,0 +1,10 @@
+class Bar<T>:
+    def __init__(self):
+        pass
+
+    def foo<T>(self, obj: T):
+        print(obj)
+
+
+def main():
+    pass

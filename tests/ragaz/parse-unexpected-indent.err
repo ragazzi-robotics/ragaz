@@ -1,0 +1,18 @@
+@
+ERROR
+=====
+
+    In parse-unexpected-indent.zz:
+
+    |
+  1 | def main()
+    |          ^
+    |          there is no colon after this
+    |
+  2 |     pass
+    |     ^
+    |     but the indentation is incremented
+
+    Hint:
+    - Have you forgotten to write the colon?
+@

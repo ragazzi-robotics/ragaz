@@ -1,0 +1,6 @@
+def func(x: float, y: int) -> float:
+    return x + y
+
+
+def main():
+    var a: callable<<str, str>, str> = func

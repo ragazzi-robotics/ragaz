@@ -1,0 +1,11 @@
+def main():
+
+    # TODO: Implement file handling and make these tests work
+
+    #f = open("file.txt")
+    #print(f.read())
+    #f.close()
+
+    #f = open("file2.txt", "w")
+    #f.write("Good morning starshine! The Earth says Hello!")
+    #f.close()

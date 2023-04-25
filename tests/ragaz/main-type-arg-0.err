@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In main-type-arg-0.zz:
+
+    |
+  1 | def main(args: data<str>):
+    |          ^
+    |          first and single argument to 'main()' must be of type 'list<str>' ('data<str>' not allowed)
+@

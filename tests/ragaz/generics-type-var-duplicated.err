@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In generics-type-var-duplicated.zz:
+
+    |
+  1 | class Bar<T>:
+    |           ^
+    |           type 'T' already was declared in the class
+    |
+  5 |     def foo<T>(self, obj: T):
+    |             ^
+    |             but method tries declare it again
+@

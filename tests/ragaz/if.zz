@@ -1,0 +1,16 @@
+def main():
+
+    if 1:
+        print("A")
+    else:
+        print("B")
+
+    if 3:
+        print("C")
+
+    if 0:
+        print("D")
+    elif 2:
+        print("E")
+    else:
+        print("F")

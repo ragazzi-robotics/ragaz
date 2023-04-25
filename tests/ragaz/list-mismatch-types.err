@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In list-mismatch-types.zz:
+
+    |
+  2 |     var a = [1, "a"]
+    |                 ^
+    |                 elements have mismatch types ('anyint' vs 'str')
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

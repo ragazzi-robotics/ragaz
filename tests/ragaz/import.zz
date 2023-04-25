@@ -1,0 +1,14 @@
+from inner_module import CONST, func1 as fn1, innest_module_1 as mod1, custom_range
+import inner_module.innest_module_2
+
+
+def main():
+
+    for i in custom_range(0, 5):
+        print(i)
+
+    print(CONST)
+    print(mod1.CONST)
+    print(inner_module.innest_module_2.CONST)
+
+    print(fn1())

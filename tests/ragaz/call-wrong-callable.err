@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In call-wrong-callable.zz:
+
+    |
+  3 |     x()
+    |     ^
+    |     object is not a method or function (thus cannot be called)
+@

@@ -1,0 +1,18 @@
+def main():
+
+    # bool
+    print(True)
+    print(False)
+
+    # and/or, bool
+    print(not True)
+    print(True and False)
+    print(True or False)
+
+    # and/or, str
+    print("a" and "b")
+    print("" and "a")
+    print("a" and "")
+    print("a" or "b")
+    print("" or "a")
+    print("a" or "")

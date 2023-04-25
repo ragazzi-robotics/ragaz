@@ -1,0 +1,18 @@
+def main():
+
+    var a = 'a'
+    print(isinstance(a, byte))
+
+    var b: byte = 97
+    print(isinstance(a, byte))
+    print(a)
+
+    var c: int = a as int
+    print(c)
+
+    var d = "abcd"
+    d[1] = 'x'
+    print(d)
+
+    var e = d[1]
+    print(isinstance(e, byte))

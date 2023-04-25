@@ -1,0 +1,15 @@
+var a = 123
+
+
+def foo(a: str):
+    print(a)
+    var a: int = 1
+    if True:
+        var a: float = 2.0
+        print(a)
+    print(a)
+
+
+def main():
+    print(a)
+    foo("abc")

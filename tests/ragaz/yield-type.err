@@ -1,0 +1,19 @@
+@
+ERROR
+=====
+
+    In yield-type.zz:
+
+    |
+  1 | def foo() -> iterator<bool>:
+    |                       ^
+    |                       function must yield a value of type 'bool'
+    |
+  2 |     yield 0
+    |           ^
+    |           but yielded a value of type 'anyint'
+
+    Hint:
+    - Use 'as' keyword to convert values.
+    - Create a magic method to convert implicitly the values.
+@

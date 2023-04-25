@@ -1,0 +1,13 @@
+class Bar:
+    i: int
+    def __init__(self, i: int):
+        self.i = i
+
+
+def main():
+    var a = Bar(1)
+    var b = Bar(1)
+
+    # Comparison is by objects' ID not by their fields values. If the users want a comparison by values, they must
+    # implement a '__eq__' method in 'Bar' class
+    print(a == b)

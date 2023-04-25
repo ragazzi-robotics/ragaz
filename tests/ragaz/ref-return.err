@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In ref-return.zz:
+
+    |
+  3 |     return &a
+    |            ^
+    |            cannot return a reference to a local object
+@

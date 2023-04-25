@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In value-not-allowed-type-basic.zz:
+
+    |
+  4 |     var a = TIPO + 1
+    |             ^
+    |             object is a type, not a value
+@

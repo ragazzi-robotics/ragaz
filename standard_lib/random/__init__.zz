@@ -1,0 +1,30 @@
+from libc import srand, rand
+
+var RAND_MAX: float = 0
+
+
+@inline
+def seed(s: uint):
+    srand(s)
+
+    # Try find out which the actual value of RAND_MAX
+    # In GCC, RAND_MAX = 2147483647 = (2 ** 31) - 1, in other platforms, other number according to number of bits
+    for bits in [16, 32, 64, 128]:
+        var potential_randmax: float = ((2 ** (bits - 1)) - 1)
+        var num: float = rand() as float / potential_randmax
+        if num >= 0.0 and num <= 1.0:
+            RAND_MAX = potential_randmax
+            break
+
+
+@inline
+def random() -> float:
+    return rand() / RAND_MAX
+
+
+def randint(min: int, max: int) -> int:
+    return (rand() % ((max + 1) - min)) + min
+
+
+def uniform(min: float, max: float) -> float:
+    return ((rand() / RAND_MAX) * (max - min)) + min

@@ -1,0 +1,8 @@
+def foo() -> &str:
+    var a = "blah"
+    return &a
+
+
+def main():
+    print(foo())
+    return

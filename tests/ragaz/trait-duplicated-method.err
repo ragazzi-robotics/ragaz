@@ -1,0 +1,15 @@
+@
+ERROR
+=====
+
+    In trait-duplicated-method.zz:
+
+    |
+  2 |     def add(self, a: int, b: int) -> int
+    |            ^
+    |            method was declared with the name 'add'
+    |
+  4 |     def add(self, a: float, b: float) -> float
+    |            ^
+    |            but this method also was declared with the same name
+@

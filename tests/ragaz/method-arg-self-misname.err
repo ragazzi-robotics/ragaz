@@ -1,0 +1,11 @@
+@
+ERROR
+=====
+
+    In method-arg-self-misname.zz:
+
+    |
+  2 |     def __init__(i: int):
+    |                  ^
+    |                  first method argument must be called 'self'
+@

@@ -1,0 +1,7 @@
+class Bar:
+    def __init__(self: int):
+        return
+
+
+def main():
+    pass
