@@ -6,6 +6,7 @@ python:
   - "3.9"
 
 dist: focal
+compiler: clang-15
 matrix:
   include:
     - os: linux
@@ -18,10 +19,6 @@ matrix:
               - https://apt.llvm.org/llvm-snapshot.gpg.key
           packages:
             - clang-15
-
-env:
-  - CC=clang-15
-  - CXX=clang++-15
 
 install:
   - clang --version
