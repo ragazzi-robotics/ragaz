@@ -10,7 +10,7 @@ compiler: clang
 matrix:
   include:
     - os: linux
-    - env: COMPILER=clang++-15.0
+    - env: COMPILER=clang-15.0
       addons:
         apt:
           sources:
