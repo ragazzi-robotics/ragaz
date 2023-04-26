@@ -6,10 +6,11 @@ python:
   - "3.9"
 
 dist: focal
-compiler: clang-15
+compiler: clang
 matrix:
   include:
     - os: linux
+    - env: COMPILER=clang++-15.0
       addons:
         apt:
           sources:
