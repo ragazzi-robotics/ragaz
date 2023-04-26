@@ -5,28 +5,12 @@ sudo: enabled
 python:
   - "3.9"
 
-before_install:  
-  - sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
-  - wget https://apt.llvm.org/llvm.sh
-  - chmod +x llvm.sh
-  - sudo ./llvm.sh 9.0
-
 install:
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
-  - export CC="clang-9.0"
-  - export CXX="clang++-9.0"
 
 script:
   make coverage
   
 after_success:
   coveralls
-  
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/b81f9ec6e179a91aaca0
-    on_success: change
-    on_failure: always
-    on_start: false
