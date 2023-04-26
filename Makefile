@@ -1,10 +1,10 @@
 .PHONY: test doc
 
 test:
-    python test.py
+	python test.py
 
 coverage:
-    coverage run test.py
+	python -m coverage run test.py
 
 doc:
-    make -C doc html
+	make -C doc html

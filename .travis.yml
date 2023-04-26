@@ -1,14 +1,21 @@
 language: python
+
 sudo: false
+
 python:
   - "3.9"
+  
 install:
   - pip install rply
+  - pip install llvmlite
   - pip install coveralls
+  
 script:
   make coverage
+  
 after_success:
   coveralls
+  
 notifications:
   webhooks:
     urls:
