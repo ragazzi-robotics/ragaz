@@ -21,8 +21,6 @@ matrix:
             - clang-15
 
 install:
-  - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-15.0 100
-  - sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-15.0 100
   - clang --version
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
