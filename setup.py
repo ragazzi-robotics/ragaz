@@ -14,6 +14,7 @@ setup(
     packages = find_packages(),
     package_data = {
         '': ['README.md', 'LICENSE']},
+    scripts=['ragazc']
     description = 'Ragaz is a fast, safe and powerful pythonic language which aims allow you to create simple scripts to complex systems in a code easier to read, write and maintain than other system languages with the same purpose.',
     author='David Ragazzi',
     author_email='david_ragazzi@hotmail.com',
