@@ -35,6 +35,7 @@ class RagazTest(unittest.TestCase):
         show_warnings = "show_warnings" in self.options
         automatic_casting = "no_auto_cast" not in self.options
         mutability_checking = "mut_check" in self.options
+        print(self.options)
         if os.path.exists(self.binary_file):
             os.unlink(self.binary_file)
         try:
