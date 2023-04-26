@@ -282,6 +282,7 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
     # Prepare a dict to store LLVM assembly files and their content
     core_ir_file = os.path.join(util.CORE_DIR, "__builtins__.ll")
     ir_files = {core_ir_file: str(CORE_MODULE.ir)}
+    print(ir_files[core_ir_file])
 
     # Generate a string of LLVM assembly for every imported module in input file
     for file, module in modules.items():
