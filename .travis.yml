@@ -2,6 +2,21 @@ language: python
 
 sudo: false
 
+matrix:
+  include:
+  - env: CXX=clang++-15.0 CC=clang-15.0
+    addons:
+      apt:
+        packages:
+          - clang-15.0
+          - libc++-dev
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise
+            - llvm-toolchain-precise-15.0
+            - sourceline: 'deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main'
+              key_url: 'http://apt.llvm.org/llvm-snapshot.gpg.key'
+
 python:
   - "3.9"
 
