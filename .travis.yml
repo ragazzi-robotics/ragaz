@@ -9,9 +9,9 @@ matrix:
       apt:
         packages:
           - clang-15.0
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-15.0
+        sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-precise-15.0
 
 python:
   - "3.9"
