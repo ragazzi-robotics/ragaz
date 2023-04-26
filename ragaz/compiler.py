@@ -282,7 +282,6 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
     # Prepare a dict to store LLVM assembly files and their content
     core_ir_file = os.path.join(util.CORE_DIR, "__builtins__.ll")
     ir_files = {core_ir_file: str(CORE_MODULE.ir)}
-    print(ir_files[core_ir_file])
 
     # Generate a string of LLVM assembly for every imported module in input file
     for file, module in modules.items():
@@ -296,7 +295,6 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
             f.write(str(ir))
 
     triple = TARGET_MACHINE.triple
-    print(triple)
 
     # Create the personality LLVM assembly file using clang++
     error_handle_dir = os.path.join(util.CORE_DIR, "personality")
@@ -324,8 +322,11 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
                 output_extension = ".dll"
             else:
                 output_extension = ".so"
-        elif "windows" in triple:
-            output_extension = ".exe"
+        else:
+            if "windows" in triple:
+                output_extension = ".exe"
+            else:
+                output_extension = ".a"
         output_file += output_extension
 
     # Build the binary using all LLVM assembly files generated
@@ -351,4 +352,5 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
             os.unlink(file)
 
     main_ir_file = input_file.rsplit(".zz")[0] + ".ll"
+    print(ir_files[main_ir_file])
     return ir_files[main_ir_file]
