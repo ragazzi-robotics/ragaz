@@ -1,15 +1,15 @@
 language: python
 
-sudo: false
+sudo: enabled
 
 python:
   - "3.9"
 
 before_install:  
-  - bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+  - sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
   - wget https://apt.llvm.org/llvm.sh
   - chmod +x llvm.sh
-  - ./llvm.sh 15.0
+  - sudo ./llvm.sh 15.0
 
 install:
   - cd ${TRAVIS_BUILD_DIR}
