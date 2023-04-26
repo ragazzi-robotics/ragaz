@@ -7,10 +7,10 @@ python:
 
 dist: focal
 compiler: clang
+env: CLANG_VERSION=15.0 CC=clang-15.0 CXX=clang++-15.0 LIBCXX=On
 matrix:
   include:
     - os: linux
-    - env: COMPILER=clang-15.0
       addons:
         apt:
           sources:
