@@ -3,13 +3,12 @@ language: python
 sudo: false
 
 python:
-  - "3.9"
-  
+  - "3.10.10"
+
 install:
-  - pip install rply
-  - pip install llvmlite
-  - pip install coveralls
-  
+  - cd ${TRAVIS_BUILD_DIR}
+  - python setup.py install
+
 script:
   make coverage
   
