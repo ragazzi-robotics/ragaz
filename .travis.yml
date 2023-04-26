@@ -23,7 +23,7 @@ matrix:
 install:
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
-  - ./ragazc compile examples/hello_world.zz
+  - sudo ./ragazc compile examples/hello_world.zz
 
 script:
   make coverage
