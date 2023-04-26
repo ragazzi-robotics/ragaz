@@ -21,9 +21,9 @@ matrix:
             - clang-15
 
 install:
-  - clang-15 --version
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
+  - ./ragazc compile examples/hello_world.zz
 
 script:
   make coverage
