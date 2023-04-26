@@ -6,34 +6,8 @@ from setuptools import setup, find_packages
 This file should called to install the package.
 """
 
-REPO_DIR = os.getcwd()
-
-
-def getPlatformInfo():
-    """
-    Identify platform
-    """
-    if "linux" in sys.platform:
-        platform = "linux"
-    elif "darwin" in sys.platform:
-        platform = "darwin"
-    elif "win32" in sys.platform:
-        platform = "windows"
-    else:
-        raise Exception("Platform '%s' is unsupported!" % sys.platform)
-
-    if sys.maxsize > 2**32:
-        bitness = "64"
-    else:
-        bitness = "32"
-
-    return platform, bitness
-
-
-platform, bitness = getPlatformInfo()
 
 # Call the setup process
-os.chdir(REPO_DIR)
 setup(
     name = 'ragaz',
     version = "0.1.0-alpha",
