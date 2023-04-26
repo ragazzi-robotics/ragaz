@@ -24,4 +24,9 @@ install:
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
   - ragazc compile examples/hello_world.zz
-  - python test.py
+
+script:
+  make coverage
+  
+after_success:
+  coveralls
