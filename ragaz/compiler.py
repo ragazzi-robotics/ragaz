@@ -301,7 +301,7 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
     error_handle_cpp_file = os.path.join(error_handle_dir, "personality.c")
     error_handle_ir_file = os.path.join(error_handle_dir, "personality.ll")
     ir_files[error_handle_ir_file] = None
-    cmd = ["clang",
+    cmd = ["clang-15",
            "-target", triple,
            "-S", "-emit-llvm",
            "-o", error_handle_ir_file,
@@ -327,7 +327,7 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
         output_file += output_extension
 
     # Build the binary using all LLVM assembly files generated
-    cmd = ["clang",
+    cmd = ["clang-15",
            "-target", triple,
            "-m64" if triple.split("-")[0] == "x86_64" else "-m32",
            "-o", output_file,
