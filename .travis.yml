@@ -20,6 +20,7 @@ matrix:
             - clang-15
         
 install:
+  - clang --version
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
 
