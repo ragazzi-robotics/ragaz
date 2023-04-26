@@ -7,7 +7,6 @@ python:
 
 dist: focal
 compiler: clang
-env: CLANG_VERSION=15.0 CC=clang-15.0 CXX=clang++-15.0 LIBCXX=On
 matrix:
   include:
     - os: linux
@@ -22,6 +21,8 @@ matrix:
             - clang-15
 
 install:
+  - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-15.0 100
+  - sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-15.0 100
   - clang --version
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
