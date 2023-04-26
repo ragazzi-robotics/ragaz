@@ -4,12 +4,12 @@ sudo: false
 
 python:
   - "3.9"
-  - clang
 
 before_install:  
-  - sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-15 main"
-  - sudo apt-get update -qq
-  - sudo apt-get install --allow-unauthenticated -qq clang++-15.0
+  - bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+  - wget https://apt.llvm.org/llvm.sh
+  - chmod +x llvm.sh
+  - sudo ./llvm.sh 15.0
 
 install:
   - cd ${TRAVIS_BUILD_DIR}
