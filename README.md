@@ -1,6 +1,6 @@
 # Ragaz
 
-[![Build Status](https://app.travis-ci.com/ragazzi-robotics/ragaz.svg?branch=main)  [![Coverage Status](https://coveralls.io/repos/ragazzi-robotics/ragaz/badge.png?branch=master)](https://coveralls.io/r/ragazzi-robotics/ragaz?branch=master)
+![Build Status](https://app.travis-ci.com/ragazzi-robotics/ragaz.svg?branch=main)  [![Coverage Status](https://coveralls.io/repos/ragazzi-robotics/ragaz/badge.png?branch=master)](https://coveralls.io/r/ragazzi-robotics/ragaz?branch=master)
 
 Ragaz is a fast, safe and powerful pythonic language which aims allow you to create simple scripts to complex systems 
 in a code easier to read, write and maintain than other system languages with the same purpose.
