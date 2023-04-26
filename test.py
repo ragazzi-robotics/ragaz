@@ -35,6 +35,7 @@ class RagazTest(unittest.TestCase):
         show_warnings = "show_warnings" in self.options
         automatic_casting = "no_auto_cast" not in self.options
         mutability_checking = False
+        print("trying ", self.binary_file)
         if os.path.exists(self.binary_file):
             os.unlink(self.binary_file)
         try:
@@ -64,8 +65,8 @@ class RagazTest(unittest.TestCase):
             cmd = [self.binary_file] + self.options.get("args", [])
             proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = proc.communicate()
-            out = out.decode("utf-8").replace("\r\n", "\n")  # This fix output from tests on Windows
-            err = err.decode("utf-8")
+            out = out.decode("ascii").replace("\r\n", "\n")  # This fix output from tests on Windows
+            err = err.decode("ascii")
             res = [proc.returncode, out, err]
 
         # Fill the `expected` result according to previous file in directory
@@ -125,7 +126,7 @@ def execute_valgrind(test):
     cmd = ["valgrind", "--leak-check=full", test.binary_file] + args
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     _, err = proc.communicate()
-    err = err.decode("utf-8")
+    err = err.decode("ascii")
 
     blocks, curr_block = [], []
     for ln in err.splitlines():
