@@ -352,5 +352,4 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
             os.unlink(file)
 
     main_ir_file = input_file.rsplit(".zz")[0] + ".ll"
-    print(ir_files[main_ir_file])
     return ir_files[main_ir_file]
