@@ -6,6 +6,10 @@ python:
   - "3.9"
 
 install:
+  - sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+  - wget https://apt.llvm.org/llvm.sh
+  - chmod +x llvm.sh
+  - sudo ./llvm.sh 12 all  
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
 
