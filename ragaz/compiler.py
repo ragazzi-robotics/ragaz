@@ -296,6 +296,7 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
             f.write(str(ir))
 
     triple = TARGET_MACHINE.triple
+    print(triple)
 
     # Create the personality LLVM assembly file using clang++
     error_handle_dir = os.path.join(util.CORE_DIR, "personality")
