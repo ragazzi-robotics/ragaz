@@ -18,7 +18,11 @@ matrix:
               - https://apt.llvm.org/llvm-snapshot.gpg.key
           packages:
             - clang-15
-        
+
+env:
+  - CC=clang-15
+  - CXX=clang++-15
+
 install:
   - clang --version
   - cd ${TRAVIS_BUILD_DIR}
