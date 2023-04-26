@@ -2,17 +2,6 @@ language: python
 
 sudo: false
 
-matrix:
-  include:
-  - env: CXX=clang++-15.0 CC=clang-15.0
-    addons:
-      apt:
-        packages:
-          - clang-15.0
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-15.0
-
 python:
   - "3.9"
 
