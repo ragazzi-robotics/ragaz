@@ -92,20 +92,20 @@ class RagazTest(unittest.TestCase):
 
 
 def get_tests_from_dir(sub_dir):
-    files = []
+    tests = []
     test_dir = os.path.join(DIR, "tests", sub_dir)
     for file in os.listdir(test_dir):
         file = os.path.join(test_dir, file)
         if file.endswith(".zz"):
-            files.append(file)
-    return files
+            tests.append(RagazTest(file))
+    return tests
 
 
 def get_all_tests():
-    files = []
-    files.extend(get_tests_from_dir("ragaz"))
-    files.extend(get_tests_from_dir("standard_lib"))    
-    return [RagazTest(file) for file in files]
+    tests = []
+    tests.extend(get_tests_from_dir("ragaz"))
+    tests.extend(get_tests_from_dir("standard_lib"))    
+    return tests
 
 
 def suite():
