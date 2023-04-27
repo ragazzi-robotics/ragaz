@@ -35,6 +35,8 @@ class RagazTest(unittest.TestCase):
         show_warnings = "show_warnings" in self.options
         automatic_casting = "no_auto_cast" not in self.options
         mutability_checking = "mut_check" in self.options
+        print(self.options)
+        print(mutability_checking)
         if os.path.exists(self.binary_file):
             os.unlink(self.binary_file)
         try:
@@ -107,8 +109,8 @@ def get_all_tests():
     files.extend(get_tests_from_dir("standard_lib"))
     
     
-    files = ['/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/contains.zz',    
-             #'/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/owner-copy-instead-move-to-call.zz', 
+    files = [#'/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/contains.zz',    
+             '/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/ref-mutable-not-allowed.zz', 
              ]
     
     return [RagazTest(file) for file in files]
