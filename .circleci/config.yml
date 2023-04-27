@@ -20,8 +20,7 @@ jobs:
       - run: 
           name: Runnning tests
           command: |
-            coverage run test.py
-            coveralls
+            python test.py
 
 # Orchestrate our job run sequence
 workflows:
