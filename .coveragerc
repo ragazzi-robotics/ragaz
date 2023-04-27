@@ -1,5 +1,5 @@
 [run]
-source = ragazc
+source = ragaz
 
 [report]
 exclude_lines =
