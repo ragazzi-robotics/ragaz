@@ -156,7 +156,7 @@ class Typer(object):
         """
         This method is used to raise an error if name's value is being modified but its type is immutable.
         """
-        if util.MUTABILITY_CHECKING:
+        if util.MUTABILITY_CHECKING and not self.module.is_core:  # TODO: Remove CORE verification, because this check needs be done on it too
             if self.fn.name not in ["__init__", "__new__"] and types.is_wrapped(val.type) and not val.type.is_mutable:
                 if isinstance(val, ast.Symbol):
                     obj = self.definitions[val.get_name()]
