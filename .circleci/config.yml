@@ -1,6 +1,4 @@
 version: 2.1
-orbs:
-  python: dialogue/python@3.9.0
 
 # Define the jobs we want to run for this project
 jobs:
@@ -9,14 +7,21 @@ jobs:
       - image: circleci/python:3.9
     steps:
       - checkout
-      - run: pip install coveralls
-      - run: pip install -r requirements.txt
+      - run: 
+          name: Installing dependencies
+          command: |
+            - pip install coveralls
+            - run: pip install -r requirements.txt
   test:
     docker:
       - image: circleci/python:3.9
     steps:
       - checkout
-      - run: echo "this is the test job"
+      - run: 
+          name: Runnning tests
+          command: |
+            - coverage run test.py
+            - coveralls
 
 # Orchestrate our job run sequence
 workflows:
