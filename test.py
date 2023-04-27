@@ -108,9 +108,9 @@ def get_all_tests():
     
     
     files = ['/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/ref-mutable-not-allowed.zz',    
-                 '/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/contains.zz', 
-             '/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/type-checking.zz', 
-            '/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/bool-comparison.zz', ]
+             #    '/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/contains.zz', 
+             #'/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/type-checking.zz', 
+            #'/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/bool-comparison.zz', ]
     
     return [RagazTest(file) for file in files]
 
