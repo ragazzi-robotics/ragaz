@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  python: dialogue/python@3.9.0
 
 # Define the jobs we want to run for this project
 jobs:
