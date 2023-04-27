@@ -6,14 +6,14 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/base:2023.03
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run: pip install coveralls
       - run: pip install -r requirements.txt
   test:
     docker:
-      - image: cimg/base:2023.03
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run: echo "this is the test job"
