@@ -1,6 +1,6 @@
 # Ragaz
 
-[![Build Status](https://travis-ci.org/ragazzi-robotics/ragaz.png?branch=master)](https://travis-ci.org/ragazzi-robotics/ragaz)  [![Coverage Status](https://coveralls.io/repos/ragazzi-robotics/ragaz/badge.png?branch=master)](https://coveralls.io/r/ragazzi-robotics/ragaz?branch=master)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ragazzi-robotics/ragaz/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ragazzi-robotics/ragaz/tree/main)  [![Coverage Status](https://coveralls.io/repos/github/ragazzi-robotics/ragaz/badge.svg?branch=main)](https://coveralls.io/github/ragazzi-robotics/ragaz?branch=main)
 
 Ragaz is a fast, safe and powerful pythonic language which aims allow you to create simple scripts to complex systems 
 in a code easier to read, write and maintain than other system languages with the same purpose.
@@ -35,21 +35,19 @@ Ragaz works on:
 
 And have the following dependencies:
 
-- [Python 3.9](https://www.python.org/)
-- [rply](https://pypi.org/project/rply/) (0.7.8 or later)
-- [llvmlite](https://pypi.org/project/llvmlite/) (0.37.0 or later)
-- [LLVM](https://llvm.org/) (12.0 or later)
+- [Python 3.10](https://www.python.org/)
+- [LLVM](https://llvm.org/) (15.0 or later)
 
-To install Ragaz, just run the following:
+To install Ragaz, download and open the repository and just run the following:
 
-    pip install ragaz
+    python setup.py install
 
 ## Test
 
 To check whether installation was successful, just run the following:
 
     # From the root of the repo:
-    ragazc test.py
+    python test.py
 
 ## How to contribute
 

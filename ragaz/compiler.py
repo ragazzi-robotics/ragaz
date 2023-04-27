@@ -249,15 +249,24 @@ def show_pretty_ir(file, last_pass=None):
     return pretty_ir
 
 
+def find_clang():
+    min_version = 11
+    max_version = 15
+    compatible_versions = range(min_version, max_version + 1)
+    for version in compatible_versions:
+        compiler = "clang-" + str(version)
+        try:
+            subprocess.check_call([compiler, "--version"], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+            return compiler
+        except:
+            pass
+    raise Exception("error: no compatible clang ({versions}) was found"
+                    .format(versions=", ".join([str(version) for version in compatible_versions])))
+
+
 def execute_clang(cmd):
-    compiler = cmd[0]
     try:
         subprocess.check_call(cmd)
-    except OSError as e:
-        if e.errno == 2:
-            print("error: {compiler} not found".format(compiler=compiler))
-        else:
-            raise
     except subprocess.CalledProcessError:
         pass
 
@@ -295,13 +304,14 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
             f.write(str(ir))
 
     triple = TARGET_MACHINE.triple
+    clang_compiler = find_clang()
 
     # Create the personality LLVM assembly file using clang++
     error_handle_dir = os.path.join(util.CORE_DIR, "personality")
     error_handle_cpp_file = os.path.join(error_handle_dir, "personality.c")
     error_handle_ir_file = os.path.join(error_handle_dir, "personality.ll")
     ir_files[error_handle_ir_file] = None
-    cmd = ["clang",
+    cmd = [clang_compiler,
            "-target", triple,
            "-S", "-emit-llvm",
            "-o", error_handle_ir_file,
@@ -322,12 +332,15 @@ def compile(input_file, output_file, output_is_library=False, use_optimization=T
                 output_extension = ".dll"
             else:
                 output_extension = ".so"
-        elif "windows" in triple:
-            output_extension = ".exe"
+        else:
+            if "windows" in triple:
+                output_extension = ".exe"
+            else:
+                output_extension = ".a"
         output_file += output_extension
 
     # Build the binary using all LLVM assembly files generated
-    cmd = ["clang",
+    cmd = [clang_compiler,
            "-target", triple,
            "-m64" if triple.split("-")[0] == "x86_64" else "-m32",
            "-o", output_file,

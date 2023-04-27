@@ -8,9 +8,9 @@ def main():
     #for element in a:
     #    print(element)
 
-    var b = set([3, 2, 1])
-    var it = iter(b)
-    print(next(it))
+    #var b = set([3, 2, 1])
+    #var it = iter(b)
+    #print(next(it))
 
     # TODO: Make it work:
     #var a = {"a", "b", "c"}

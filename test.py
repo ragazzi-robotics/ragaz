@@ -104,7 +104,7 @@ def get_tests_from_dir(sub_dir):
 def get_all_tests():
     tests = []
     tests.extend(get_tests_from_dir("ragaz"))
-    tests.extend(get_tests_from_dir("standard_lib"))
+    tests.extend(get_tests_from_dir("standard_lib"))    
     return tests
 
 
