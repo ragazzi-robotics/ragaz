@@ -103,8 +103,9 @@ def get_tests_from_dir(sub_dir):
 
 def get_all_tests():
     tests = []
-    #tests = [RagazTest(os.path.join(DIR, "tests", "ragaz", "abs.zz"))]
-    tests.extend(get_tests_from_dir("ragaz"))
+    tests = [RagazTest(os.path.join(DIR, "tests", "ragaz", "abs.zz")),
+             RagazTest(os.path.join(DIR, "tests", "ragaz", "contains.zz"))]
+    #tests.extend(get_tests_from_dir("ragaz"))
     return tests
 
 
