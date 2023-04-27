@@ -4,7 +4,7 @@ test:
 	python test.py
 
 coverage:
-	python -m coverage run test.py
+	coverage run -m run test.py
 
 doc:
 	make -C doc html
