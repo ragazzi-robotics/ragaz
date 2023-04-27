@@ -10,17 +10,17 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Installing dependencies
+          name: Install dedendencies
           command: |
             - pip install coveralls
-            - run: pip install -r requirements.txt
+            - pip install -r requirements.txt
   test:
     docker:
       - image: circleci/python:3.9
     steps:
       - checkout
       - run: 
-          name: Runnning tests
+          name: Running tests
           command: |
             - coverage run test.py
             - coveralls
