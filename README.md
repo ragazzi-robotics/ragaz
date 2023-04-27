@@ -35,8 +35,8 @@ Ragaz works on:
 
 And have the following dependencies:
 
-- [Python 3.10](https://www.python.org/)
-- [LLVM](https://llvm.org/) (15.0 or later)
+- [Python](https://www.python.org/) (3.9 or later)
+- [LLVM/Clang](https://llvm.org/) (11.0 or later)
 
 To install Ragaz, download and open the repository and just run the following:
 
