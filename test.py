@@ -105,6 +105,7 @@ def get_all_tests():
     files = []
     files.extend(get_tests_from_dir("ragaz"))
     files.extend(get_tests_from_dir("standard_lib"))
+    print(files)
     return [RagazTest(file) for file in files]
 
 
