@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   python: dialogue/python@3.9.0
-  
+
 # Define the jobs we want to run for this project
 jobs:
   build:
@@ -9,7 +9,8 @@ jobs:
       - image: cimg/base:2023.03
     steps:
       - checkout
-      - run: echo "this is the build job"
+      - run: pip install coveralls
+      - run: pip install -r requirements.txt
   test:
     docker:
       - image: cimg/base:2023.03
