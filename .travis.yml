@@ -21,12 +21,13 @@ matrix:
             - clang-15
 
 install:
+  - pip install coveralls
   - cd ${TRAVIS_BUILD_DIR}
   - python setup.py install
   - ragazc compile examples/hello_world.zz
 
 script:
-  - coverage run test.py
+  coverage run test.py
   
 after_success:
-  - coveralls
+  coveralls
