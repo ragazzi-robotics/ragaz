@@ -29,9 +29,6 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools'
     ],
-    install_requires = [
-        "rply==0.7.8",
-        "llvmlite==0.39.1"],
     long_description = """Ragaz is a fast, safe and powerful pythonic language which aims allow you to create simple scripts to complex systems in a code easier to read, write and maintain than other system languages with the same purpose.
 For more information, see GitHub page (https://github.com/ragazzi-robotics/ragaz/)."""
 )
