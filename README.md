@@ -47,7 +47,7 @@ To install Ragaz, download and open the repository and just run the following:
 To check whether installation was successful, just run the following:
 
     # From the root of the repo:
-    ragazc test.py
+    python test.py
 
 ## How to contribute
 
