@@ -107,7 +107,7 @@ def get_all_tests():
     files.extend(get_tests_from_dir("standard_lib"))
     
     
-    files = ['/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/ref-mutable-not-allowed.zz',    
+    files = ['/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/contains.zz',    
              #'/home/travis/build/ragazzi-robotics/ragaz/tests/ragaz/owner-copy-instead-move-to-call.zz', 
              ]
     
