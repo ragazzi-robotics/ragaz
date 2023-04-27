@@ -22,11 +22,9 @@ matrix:
 
 install:
   - pip install coveralls
-  - cd ${TRAVIS_BUILD_DIR}
-  - python setup.py install
+  - pip install -r requirements.txt
 
 script:
-  - cd ${TRAVIS_BUILD_DIR}
   - coverage run test.py
   
 after_success:
