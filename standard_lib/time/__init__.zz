@@ -1,5 +1,8 @@
-from libc import time as time_c
+from libc import clock
+
+var CLOCKS_PER_SEC: float = 1000000
 
 
-def time() -> int:
-    return time_c(None)
+def time() -> float:
+    var t = clock()
+    return t / CLOCKS_PER_SEC
