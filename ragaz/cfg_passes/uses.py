@@ -49,6 +49,18 @@ class UsesChecker(object):
 
     def check_move_or_copy(self, src, dst_type):
 
+        def check_partial_move(node):
+            # Check if object had its ownership moved
+            var = self.moves.get(node.get_name(), None)
+            if var is None:
+                for obj in self.moves:
+                    if isinstance(obj, tuple) and obj[0] == node.get_name():
+                        var = self.moves[obj]
+                        msg = (var.pos, "value partially moved here")
+                        msg2 = (node.pos, "but passed again here after move")
+                        hints = ["If you don't intend move it, consider pass a reference to value using '&' operator."]
+                        raise util.Error([msg, msg2], hints=hints)
+
         # If the object will be passed to a function which is imported from C language, the operations like 'move'
         # and 'copy' are not applicable
         is_extern_c = False
@@ -62,8 +74,10 @@ class UsesChecker(object):
                     if isinstance(src, ast.Tuple):
                         for i, element in enumerate(src.elements):
                             if types.is_heap_owner(element.type):
+                                check_partial_move(element)
                                 self.moves[element.get_name()] = element
                     elif isinstance(src, (ast.Symbol, ast.Attribute)):
+                        check_partial_move(src)
                         self.moves[src.get_name()] = src
             elif hasattr(src, "check_copy") and src.check_copy:
                 if not types.is_heap_owner(src.type):
@@ -308,11 +322,10 @@ class UsesChecker(object):
 
     def visit_call(self, node):
         self.visit(node.callable)
-        for arg in node.args:
-            self.visit(arg)
 
         formals = node.fn.type.over["args"]
         for actual, formal_type in zip(node.args, formals):
+            self.visit(actual)
             self.check_move_or_copy(actual, formal_type)
 
     def visit_yield(self, node):
@@ -326,16 +339,9 @@ class UsesChecker(object):
     def check_object(self, node):
 
         # Check if variable had its ownership moved
-        partial = False
         var = self.moves.get(node.get_name(), None)
-        if var is None:
-            for obj in self.moves:
-                if isinstance(obj, tuple) and obj[0] == node.get_name():
-                    var = self.moves[obj]
-                    partial = True
-                    break
         if var is not None:
-            msg = (var.pos, "value {partial}moved here".format(partial="(partially) " if partial else ""))
+            msg = (var.pos, "value moved here")
             msg2 = (node.pos, "but used here after move")
             hints = ["If you don't intend move it, consider pass a reference to value using '&' operator."]
             raise util.Error([msg, msg2], hints=hints)

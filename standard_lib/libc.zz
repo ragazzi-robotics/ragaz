@@ -3,8 +3,9 @@
 # of having a standard library and so to have a usable version of Ragaz. But as a proof of concept, all they should
 # be Ragaz functions.
 
+
 @extern_c
-def time(second: &int) -> int
+def clock() -> int
 
 @extern_c
 def getenv(env_var: data<byte>) -> data<byte>

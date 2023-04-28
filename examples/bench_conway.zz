@@ -1,0 +1,106 @@
+import time
+
+
+class Point:
+    x: int
+    y: int
+
+    def __init__(self, x: int, y: int):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other: &Self) -> Self:
+        return Point(self.x + other.x, self.y + other.y)
+
+    def __str__(self) -> str:
+        return str(self.x) + ", " + str(self.y)
+
+
+def floor_modulo<T>(dividend: T, divisor: T) -> T:
+    return ((dividend % divisor) + divisor) % divisor
+
+
+class Automata:
+    width: int
+    height: int
+    born: list<bool>
+    survives: list<bool>
+    data: list<bool>
+    neighbors: list<Point>
+
+    def __init__(self, width: int, height: int, born: list<bool>, survives: list<bool>):
+        self.width = width
+        self.height = height
+        self.born = born
+        self.survives = survives
+        self.data = []
+        for i in range(width * height):
+            self.data.append(False)
+        self.neighbors = [Point(-1, -1), Point(0, -1), Point(1, -1), Point(-1, 0), Point(1, 0), Point(-1, 1), Point(0, 1), Point(1, 1)]
+
+    def index(self, p: &Point) -> int:
+        var idx = (floor_modulo(p.y, self.height) * self.width) + floor_modulo(p.x, self.width)
+        return idx
+
+    def get(self, p: &Point) -> bool:
+        return self.data[self.index(p)]
+
+    def set(self, p: &Point):
+        self.data[self.index(p)] = True
+
+    def count_neighbors(self, p: &Point) -> int:
+        var counter = 0
+        for loc in self.neighbors:
+            if self.get(loc + p):
+                counter += 1
+        return counter
+
+    def next(self) -> Automata:
+        var result = Automata(self.width, self.height, self.born, self.survives)
+
+        for y in range(self.height):
+            for x in range(self.width):
+                var p = Point(x, y)
+                var neighbors = self.count_neighbors(p)
+                if self.get(p):
+                    if result.survives[neighbors]:
+                        result.set(p)
+                else:
+                    if result.born[neighbors]:
+                        result.set(p)
+
+        return result
+
+    def add_glider(self, p: Point):
+        self.set(p)
+        self.set(p + Point(1, 1))
+        self.set(p + Point(2, 1))
+        self.set(p + Point(0, 2))
+        self.set(p + Point(1, 2))
+
+
+def main():
+    var start_time: float = time.time()
+
+    var born = [False, False, False, True, False, False, False, False, False]
+    var survives = [False, False, True, True, False, False, False, False, False]
+
+    var obj = Automata(40, 20, born, survives)
+
+    obj.add_glider(Point(0, 18))
+
+    for i in range(1000):
+        obj = obj.next()
+
+    """
+    for y in range(0, obj.height):
+        for x in range(0, obj.width):
+            if obj.get(Point(x, y)):
+                print("X", end="")
+            else:
+                print(".", end="")
+        print("")
+    """
+
+    var elapsed_time: float = (time.time() - start_time)
+    print(elapsed_time)

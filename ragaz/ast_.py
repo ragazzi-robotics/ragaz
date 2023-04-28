@@ -213,7 +213,7 @@ class Attribute(Expression):
 
     def get_name(self):
         if isinstance(self.obj, Attribute):
-            obj_name = self.get_name()
+            obj_name = self.obj.get_name()
         else:
             if isinstance(self.obj, Call):
                 raise
