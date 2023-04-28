@@ -1,3 +1,8 @@
+"""
+Created by Jason Turner
+https://github.com/lefticus/cpp_weekly/tree/master/python/conway_game_of_life
+"""
+
 import time
 
 
@@ -89,18 +94,17 @@ def main():
 
     obj.add_glider(Point(0, 18))
 
+    # Original test takes 10,000 but it takes longer time to finish
     for i in range(1000):
         obj = obj.next()
 
-    """
-    for y in range(0, obj.height):
-        for x in range(0, obj.width):
+    for y in range(obj.height):
+        for x in range(obj.width):
             if obj.get(Point(x, y)):
-                print("X", end="")
+                print("X", sep="")
             else:
-                print(".", end="")
+                print(".", sep="")
         print("")
-    """
 
     var elapsed_time: float = (time.time() - start_time)
     print(elapsed_time)
