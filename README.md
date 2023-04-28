@@ -2,7 +2,7 @@
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/ragazzi-robotics/ragaz/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ragazzi-robotics/ragaz/tree/main)  [![Coverage Status](https://coveralls.io/repos/github/ragazzi-robotics/ragaz/badge.svg?branch=main)](https://coveralls.io/github/ragazzi-robotics/ragaz?branch=main)
 
-Ragaz is a fast, safe and powerful pythonic language which aims allow you to create simple scripts to complex systems 
+Ragaz is a fast, safe and powerful pythonic compiler which aims allow you to create simple scripts to complex systems 
 in a code easier to read, write and maintain than other system languages with the same purpose.
 
 See a *hello world* in Ragaz:
