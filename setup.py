@@ -6,11 +6,14 @@ from setuptools import setup, find_packages
 This file should called to install the package.
 """
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
 # Call the setup process
 setup(
     name = 'ragaz',
     version = "0.1.0-alpha",
+    install_requires=required,
     packages = find_packages(),
     package_data = {
         '': ['README.md', 'LICENSE']},
