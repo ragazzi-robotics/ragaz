@@ -1,13 +1,14 @@
 Hello everyone, I would like to introduce you to a project that I have been working on for 2 years. For those who don't know me, my name is David, I'm a software engineer (MSc) and I've been working with Python and artificial intelligence for a few years.
 
-The name of the project is Ragaz, and it consists of a compiler which I'm writing aimed at meeting requirements that many developers, like me, have always wanted in the Pythonic world as such as:
+The name of the project is Ragaz. In short words, Ragaz is a dialect of Python with features that allow your pythonic code run on bare metal. This is possible because the compiler converts Ragaz code to binaries using LLVM as intermediate language.
 
+Its strengths:
 - Runtime speed equal to or close to languages like C/C++ or Rust.
 - Compiling a Python project to pure executable code (using [LLVM](https://www.infoworld.com/article/3247799/what-is-llvm-the-power-behind-swift-rust-clang-and-more.html)) without the need for virtual machines, wrappings, decorators, and other extras to distribute your software.
 - Code that runs on multiple processors (because there is no [GIL](https://granulate.io/blog/introduction-to-the-infamous-python-gil/)).
 - Rust-like memory management that eliminates garbage collector, improves runtime speed and prevents memory access bugs.
 
-With these requirements already being met in my project, even creating an operating system in a python-like syntax would be feasible, for example.
+With these requirements already being met in my project, I thought even creating an operating system in a python-like syntax would be feasible, for example.
 
 I made this chart comparing Ragaz's performance with the official version of Python and C/C++. As you can see, the program compiled in Ragaz is dozens of times faster than the default implementation of Python 3.9 and with a speed equal to or close to that of C/C++.
 
