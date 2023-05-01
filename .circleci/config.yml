@@ -12,7 +12,7 @@ jobs:
       - run: wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
       - run: sudo apt-get update
       - run: sudo apt-get install -y clang-11
-      - run: pip setup.py install
+      - run: python setup.py install
       - run: coverage run test.py
       - run: coveralls
 
