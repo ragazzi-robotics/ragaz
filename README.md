@@ -2,7 +2,7 @@
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/ragazzi-robotics/ragaz/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ragazzi-robotics/ragaz/tree/main)  [![Coverage Status](https://coveralls.io/repos/github/ragazzi-robotics/ragaz/badge.svg?branch=main)](https://coveralls.io/github/ragazzi-robotics/ragaz?branch=main)
 
-Ragaz aims be a fast, safe and powerful compiler with python-like syntax which aims allow you to create from simple scripts to complex systems 
+Ragaz aims be a fast, safe and powerful language with python-like syntax which aims allow you to create from simple scripts to complex systems 
 in a code easier to read, write and maintain than other system languages (C/C++, Rust, etc) with the same purpose.
 
 Its strengths:
