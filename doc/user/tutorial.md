@@ -1,8 +1,5 @@
 # Table of contents
 1. [Introduction](#introduction)
-2. [Getting Started](#getting_started)
-   1. [Installation](#installation)
-   2. [Hello, World!](#hello_world)
 3. [Common Programming Concepts](#common_programming_concepts)
    1. [Variables](#variables)
    2. [Data Types](#data_types)
@@ -15,64 +12,7 @@
 4. [Compilation Directives](#compiler_directives)
 5. [Linking External Libraries](#linking_external_libraries)
 
-# Introduction<a name="introduction"></a>
-
-Ragaz is a fast, safe and powerful pythonic language which allows you create systems (even operating systems) 
-that are easier to read, write and maintain than other languages with the same purpose. 
-
-It is a dialect of Python with features that allow your pythonic code run on bare metal. And this 
-is possible because the compiler converts Ragaz code to binaries using LLVM as intermediate language.
-
-Compared to other pyhtonic tools, Ragaz is faster than most of them because these tools try keep 
-compatibility to Python code that is very high level but not much efficient, this force they to use a lot de 
-overload to create automatic conversions among other drawbacks. Ragaz doesn't worry about keep compatibility 
-with all Python features rather it forces user to strictly type her variables, encapsulate code into functions, etc. 
-As a result, user has a code that is straight-forward and thus fast because it uses less instructions to run.
-
-Furthermore, with Ragaz you don't need to reinvent the wheel, you can reuse modules compiled by other languages 
-like C, C++ or Rust, without need any wrappers: you can [link](#linking_external_libraries) them with your code 
-declaring these modules on dependencies file and then import them on your Ragaz file as if they were Python modules.
-
-And to finalize, as Ragaz doesn't use GIL (Global Interpreter Lock) your code can parallely run your code in multiple 
-processors, amazing not?!
-
-With this said, this document will address the features of the language showing practical examples to you get used to 
-Ragaz and start your journey.
-
-# Getting Started<a name="getting_started"></a>
-
-Before we start, how about install Ragaz in your machine and run the tests to see if everything is ok?!
-
-## Installation<a name="installation"></a>
-
-Bear in mind that Ragaz works on:
-
-- Linux x86 and 64bit
-- Windows (partially)
-
-In Windows, **try/except** statements are failing because compiler's error handling need be updated to support Windows,
-we are working on this. Anyway, this won't prevent you run most of the tests.
-
-But before install Ragaz you first check if you machine have the following software installed otherwise you should
-install:
-
-- [Python 3.9](https://www.python.org/) or later
-- [LLVM 12.0](https://llvm.org/) or later
-
-And now to install Ragaz, just run the following:
-
-    pip install ragaz
-
-This will install Ragaz and any dependencies required by it.
-
-To check whether installation was successful, just run the following:
-
-    # From the root of the repo:
-    ragazc test.py
-
-If something goes wrong, visit our forum to search or ask your doubts.
-
-## Hello, World!<a name="hello_world"></a>
+## Introduction<a name="introduction"></a>
 
 To introduce you to Ragaz, how about a famous **Hello World** in Ragaz:
 
