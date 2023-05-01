@@ -14,6 +14,9 @@ Its strengths:
 With these requirements already being in Ragaz, even creating an operating system in a python-like syntax would be feasible, for example.
 As a proof of concept, the built-in functions and types themselves are all already written in Ragaz (look [this](https://github.com/ragazzi-robotics/ragaz/blob/main/ragaz/core/__builtins__.zz)), and soon, the entire standard library will also be written in Ragaz.
 
+In short words, Ragaz is a dialect of Python with features that allow your pythonic code run on bare metal. This 
+is possible because the compiler converts Ragaz code to binaries using LLVM as intermediate language.
+
 This chart comparing Ragaz's performance with the official version of Python and C/C++. As you can see, the program compiled in Ragaz is dozens of times faster than the default implementation of Python 3.9 and with a speed equal to or close to that of C/C++.
 
 ![Benchmarking](https://raw.githubusercontent.com/ragazzi-robotics/ragaz/main/doc/user/pictures/benchmarking.jpg "benchmarking")
@@ -30,9 +33,6 @@ To compile, just run the following:
     
     # output: 
     Hello World
-
-In short words, Ragaz is a dialect of Python with features that allow your pythonic code run on bare metal. This 
-is possible because the compiler converts Ragaz code to binaries using LLVM as intermediate language.
 
 ## Getting Started
 
