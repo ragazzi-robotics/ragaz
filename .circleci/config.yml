@@ -13,6 +13,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install -y clang-11
       - run: sudo python setup.py install
+      - run: pip install coveralls
       - run: coverage run test.py
       - run: coveralls
 
