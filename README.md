@@ -11,7 +11,7 @@ Its strengths:
 - Code that runs on multiple processors (because there is no [GIL](https://granulate.io/blog/introduction-to-the-infamous-python-gil/)).
 - Rust-like memory management that eliminates garbage collector, improves runtime speed and prevents memory access bugs.
 
-With these requirements already being met in my project, even creating an operating system in a python-like syntax would be feasible, for example.
+With these requirements already being in Ragaz, even creating an operating system in a python-like syntax would be feasible, for example.
 As a proof of concept, the built-in functions and types themselves are all already written in Ragaz (look [this](https://github.com/ragazzi-robotics/ragaz/blob/main/ragaz/core/__builtins__.zz)), and soon, the entire standard library will also be written in Ragaz.
 
 This chart comparing Ragaz's performance with the official version of Python and C/C++. As you can see, the program compiled in Ragaz is dozens of times faster than the default implementation of Python 3.9 and with a speed equal to or close to that of C/C++.
